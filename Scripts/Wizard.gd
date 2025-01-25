@@ -39,7 +39,7 @@ func _ready():
 	floor_max_angle = 0.0
 	
 func _physics_process(delta):
-	var target_y = get_global_mouse_position().y
+	var target_y = get_global_mouse_position().y + 47
 	velocity.y = (target_y - global_position.y) * follow_speed * delta
 	
 	# Store current position with timestamp
