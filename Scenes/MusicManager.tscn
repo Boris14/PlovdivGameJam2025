@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1fggev4cif1e"]
+
+[ext_resource type="Script" path="res://Scripts/MusicManager.gd" id="1_1w6ng"]
+[ext_resource type="AudioStream" uid="uid://chv841216qn3e" path="res://Audio/MUSIC/amb_loop.ogg" id="2_2icco"]
+[ext_resource type="AudioStream" uid="uid://d1qa5xmj0few5" path="res://Audio/MUSIC/main_music.ogg" id="3_d0crc"]
+[ext_resource type="AudioStream" uid="uid://5ixlf307utc8" path="res://Audio/MUSIC/main_music_add_percussion.ogg" id="4_3tj5n"]
+[ext_resource type="AudioStream" uid="uid://67ooru336d88" path="res://Audio/MUSIC/menu_music.ogg" id="5_71rn8"]
+[ext_resource type="AudioStream" uid="uid://dg72ak4o54xb1" path="res://Audio/MUSIC/win_game_music.ogg" id="6_itvn2"]
+[ext_resource type="AudioStream" uid="uid://b81mhqni0efe7" path="res://Audio/SFX/wizzard_teleport_sfx.ogg" id="7_m6ls0"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_1w6ng")
+
+[node name="MainAmbient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2icco")
+bus = &"Ambient"
+parameters/looping = true
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d0crc")
+bus = &"MainMusic"
+parameters/looping = true
+
+[node name="MainMusicAddPercussion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3tj5n")
+bus = &"Percussion"
+parameters/looping = true
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_71rn8")
+bus = &"MenuMusic"
+parameters/looping = true
+
+[node name="WinGameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_itvn2")
+
+[node name="WizzardTeleportSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_m6ls0")

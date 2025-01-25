@@ -6,11 +6,18 @@ extends Node2D
 @export var wizard_scene : PackedScene = preload("res://Scenes/Wizard.tscn")
 @export var wizard_x_offset := 50
 @export var start_delay := 1.5
+@export var music_manager_scene : PackedScene = preload("res://Scenes/MusicManager.tscn")
+
+var music_manager : MusicManager
 
 @onready var hud := %HUD as HUD
 @onready var end_area := $EndLevelArea
 
 func _ready():
+	music_manager = music_manager_scene.instantiate()
+	get_tree().current_scene.add_child(music_manager)
+	music_manager.start_game()
+	
 	var player = player_scene.instantiate() as Player
 	player.died.connect(_on_player_died)
 	player.position = %PlayerStart.position
@@ -33,6 +40,10 @@ func _on_player_died():
 	get_tree().reload_current_scene()
 	
 func _on_win():
+	#music_manager.win_game(_on_win_sound_finished)
+	music_manager.level_transition(_on_win_sound_finished)
+	
+func _on_win_sound_finished():
 	if next_level_scene != null:
 		get_tree().call_deferred("change_scene_to_packed", next_level_scene)
 	else:
