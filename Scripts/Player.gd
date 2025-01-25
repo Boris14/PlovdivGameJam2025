@@ -8,13 +8,14 @@ extends CharacterBody2D
 @export var trail_width: float = 10.0
 
 var position_history: Array[Dictionary] = []
+var can_move := false
 
 var bubble: Bubble
 
 signal died
 
 func _physics_process(delta: float) -> void:
-	if not bubble:
+	if can_move and not bubble:
 		velocity.x = speed
 		velocity.y += gravity * delta
 	

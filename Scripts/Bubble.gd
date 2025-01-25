@@ -36,6 +36,8 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body):    
 	if body.is_in_group("bubbleable"):
 		bubble(body)
+	elif controlled_body != null:
+		pop()
 
 func _on_path_finished():
 	pop()

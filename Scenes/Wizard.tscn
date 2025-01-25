@@ -7,7 +7,7 @@
 size = Vector2(364, 360)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aljlr"]
-size = Vector2(151.5, 39)
+size = Vector2(248.5, 39)
 
 [node name="Wizard" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
@@ -34,5 +34,5 @@ position = Vector2(194, -149)
 collision_mask = 5
 
 [node name="NeedleCheckCollision" type="CollisionShape2D" parent="NeedleCheckArea"]
-position = Vector2(117.25, -9.5)
+position = Vector2(165.75, -9.5)
 shape = SubResource("RectangleShape2D_aljlr")

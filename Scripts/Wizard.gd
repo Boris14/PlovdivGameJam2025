@@ -18,8 +18,6 @@ var can_spawn_needle := true
 func _ready():
 	floor_stop_on_slope = false
 	floor_snap_length = 0.0
-	
-	# Alternatively, set floor_max_angle to 0 to prevent any slope interaction
 	floor_max_angle = 0.0
 	
 func _physics_process(delta):
@@ -43,14 +41,24 @@ func _physics_process(delta):
 	queue_redraw()
 	
 func spawn_bubble(pos):
+	if not can_spawn_bubble:
+		return
 	var bubble = bubble_scene.instantiate()
-	bubble.global_position = $BubbleSpawn.global_position
+	bubble.global_position = pos
 	get_tree().current_scene.add_child(bubble)
+	can_spawn_bubble = false
+	await get_tree().create_timer(bubble_cooldown).timeout
+	can_spawn_bubble = true
 	
 func spawn_needle(pos):
+	if not can_spawn_needle:
+		return
 	var needle = needle_scene.instantiate()
-	needle.global_position = $BubbleSpawn.global_position
+	needle.global_position = pos
 	get_tree().current_scene.add_child(needle)
+	can_spawn_needle = false
+	await get_tree().create_timer(needle_cooldown).timeout
+	can_spawn_needle = true
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -61,6 +69,7 @@ func _unhandled_input(event):
 				spawn_needle($BubbleSpawn.global_position)
 
 func _draw():
+	return
 	if position_history.size() > 1:
 		var current_time = Time.get_ticks_msec()
 		

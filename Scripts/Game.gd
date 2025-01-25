@@ -14,6 +14,8 @@ func _ready():
 	
 	await get_tree().create_timer(start_delay).timeout
 	
+	player.can_move = true
+	
 	var wizard = wizard_scene.instantiate() as Wizard
 	wizard.global_position.y = get_global_mouse_position().y
 	wizard.global_position.x = wizard_x_offset
