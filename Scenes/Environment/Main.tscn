@@ -22,8 +22,8 @@ position = Vector2(63, 497)
 polygon = PackedVector2Array(0, 522, 197, 514, 211, 400, 462, 396, 476, 514, 690, 520, 711, 416, 859, 418, 867, 647, 2, 648)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(431.5, 584.5)
-scale = Vector2(10.7375, 3.175)
+position = Vector2(350.5, 584.5)
+scale = Vector2(14.4875, 3.175)
 texture = ExtResource("4_bmpd6")
 
 [node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D2"]

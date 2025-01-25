@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var trail_start_color: Color = Color.PINK
 @export var trail_width: float = 10.0
 
+var position_history: Array[Dictionary] = []
+
 var bubble: Bubble
 
 signal died
@@ -43,8 +45,6 @@ func on_bubbled(in_bubble):
 	
 func on_bubble_popped():
 	bubble = null
-
-var position_history: Array[Dictionary] = []
 
 func _draw():
 	if bubble and position_history.size() > 1:

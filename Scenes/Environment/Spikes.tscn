@@ -7,12 +7,11 @@
 size = Vector2(735, 136)
 
 [node name="Spikes" type="Area2D"]
-collision_layer = 2
+collision_layer = 6
 collision_mask = 7
 script = ExtResource("1_btern")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jxdhi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
