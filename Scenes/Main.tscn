@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl62y8yw5moxg"]
+
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_73d2w"]
+[ext_resource type="Texture2D" uid="uid://cgak4jm13qcp4" path="res://Assets/blue_body_square.png" id="1_qmrgu"]
+[ext_resource type="PackedScene" uid="uid://df0nmf1eirk2a" path="res://Scenes/Player.tscn" id="2_5md6y"]
+[ext_resource type="PackedScene" uid="uid://tjw5colsjjhs" path="res://Scenes/Bubble.tscn" id="2_7anoo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egexp"]
+size = Vector2(1179, 95)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_73d2w")
+bubble_scene = ExtResource("2_7anoo")
+player_scene = ExtResource("2_5md6y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(572, 604)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_egexp")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-4.99997, -3.5)
+scale = Vector2(15, 1.2875)
+texture = ExtResource("1_qmrgu")
+
+[node name="PlayerStart" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(100, 500)
