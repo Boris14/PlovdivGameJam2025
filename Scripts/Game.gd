@@ -18,3 +18,7 @@ func _ready():
 	
 func _on_player_died():
 	get_tree().reload_current_scene()
+	
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()
