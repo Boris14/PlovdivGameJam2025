@@ -53,6 +53,11 @@ func spawn_bubble(pos):
 func spawn_needle(pos):
 	if not can_spawn_needle:
 		return
+	for body in $NeedleCheckArea.get_overlapping_bodies():
+		if body is Bubble:
+			body.pop()
+			return
+			
 	var needle = needle_scene.instantiate()
 	needle.global_position = pos
 	get_tree().current_scene.add_child(needle)
