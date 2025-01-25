@@ -15,7 +15,6 @@ unique_name_in_owner = true
 position = Vector2(63, 497)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
 polygon = PackedVector2Array(0, 522, 197, 514, 211, 400, 462, 396, 476, 514, 690, 520, 711, 416, 859, 418, 867, 647, 2, 648)
