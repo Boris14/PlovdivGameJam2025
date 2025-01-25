@@ -12,27 +12,25 @@
 [node name="Game" type="Node2D"]
 script = ExtResource("1_73d2w")
 next_level_scene = ExtResource("2_nunpo")
-wizard_x_offset = 70
 
 [node name="Background" parent="." instance=ExtResource("3_uy3bh")]
 
 [node name="Spikes" parent="." instance=ExtResource("5_yoqef")]
-visible = false
-position = Vector2(697, 492)
+position = Vector2(1204, 948)
 rotation = -3.13607
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.703569, 1.48769)
 
 [node name="PlayerStart" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(286, 966)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="Ground" type="StaticBody2D" parent="."]
 
-[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D2"]
+[node name="Sprite2D3" type="Sprite2D" parent="Ground"]
 position = Vector2(960, 540)
 texture = ExtResource("5_31rpe")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
 position = Vector2(937, 617)
 scale = Vector2(176.273, -95.5505)
 polygon = PackedVector2Array(-5.54253, -4.06068, -2.34863, -4.15487, -2.04796, -3.73624, -1.96854, -3.1397, -2.02527, -2.29198, -1.68488, -1.56985, -0.459515, -1.53845, -0.039712, -2.18732, -0.039712, -2.83619, -0.0510578, -3.68391, 0.243939, -4.13394, 2.984, -4.06068, 3.25063, -2.51176, 3.40381, -2.21872, 3.38679, -1.41286, 3.51159, -0.617474, 4.06187, 0.0732603, 4.37389, 0.345367, 5.5482, 0.669803, 8.28259, -5.55727, 0.00567245, -8.61324, -7.50539, -7.91204, -7.50539, -0.72213, -5.87724, 1.58032)
@@ -43,6 +41,6 @@ polygon = PackedVector2Array(-5.54253, -4.06068, -2.34863, -4.15487, -2.04796, -
 unique_name_in_owner = true
 
 [node name="EndLevelArea" parent="." instance=ExtResource("5_pgosr")]
-position = Vector2(719, 726)
+position = Vector2(1803, 530)
 
 [node name="MusicManager" parent="." instance=ExtResource("8_qpy4g")]
