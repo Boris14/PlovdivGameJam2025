@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0j8i"]
 radius = 63.1269
 
-[node name="Player" type="CharacterBody2D" groups=["bubbleable"]]
+[node name="Player" type="CharacterBody2D" groups=["bubbleable", "player"]]
 scale = Vector2(0.5, 0.5)
 collision_mask = 3
 script = ExtResource("1_2lqyo")

@@ -38,54 +38,45 @@ texture = ExtResource("2_dtrac")
 [node name="Daco4329838" type="Sprite2D" parent="SpikeTrap"]
 unique_name_in_owner = true
 position = Vector2(796.648, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("2_dtrac")
 
 [node name="Daco4329839" type="Sprite2D" parent="SpikeTrap"]
 unique_name_in_owner = true
 position = Vector2(422.912, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("2_dtrac")
 
 [node name="Daco4329840" type="Sprite2D" parent="SpikeTrap"]
 unique_name_in_owner = true
 position = Vector2(609.78, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("2_dtrac")
 
 [node name="Daco4329841" type="Sprite2D" parent="SpikeTrap"]
 unique_name_in_owner = true
-scale = Vector2(1, 1)
 texture = ExtResource("2_dtrac")
 
 [node name="Daco4329842" type="Sprite2D" parent="SpikeTrap"]
 unique_name_in_owner = true
 position = Vector2(216.373, -16.1338)
-scale = Vector2(1, 1)
 texture = ExtResource("2_dtrac")
 
 [node name="Daco4329843" type="Sprite2D" parent="SpikeTrap"]
 unique_name_in_owner = true
 position = Vector2(993.351, 16.1338)
-scale = Vector2(1, 1)
 texture = ExtResource("2_dtrac")
 
 [node name="Daco4329844" type="Sprite2D" parent="SpikeTrap"]
 unique_name_in_owner = true
 position = Vector2(1160.55, 16.1338)
-scale = Vector2(1, 1)
 texture = ExtResource("2_dtrac")
 
 [node name="Daco4329845" type="Sprite2D" parent="SpikeTrap"]
 unique_name_in_owner = true
 position = Vector2(796.648, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("2_dtrac")
 
 [node name="Daco4329846" type="Sprite2D" parent="SpikeTrap"]
 unique_name_in_owner = true
 position = Vector2(1357.25, 16.1338)
-scale = Vector2(1, 1)
 texture = ExtResource("2_dtrac")
 
 [node name="Daco4329838" type="Sprite2D" parent="SpikeTrap/Daco4329846"]
@@ -96,7 +87,6 @@ texture = ExtResource("2_dtrac")
 [node name="Daco4329847" type="Sprite2D" parent="SpikeTrap"]
 unique_name_in_owner = true
 position = Vector2(1583.46, 16.1338)
-scale = Vector2(1, 1)
 texture = ExtResource("2_dtrac")
 
 [node name="Daco4329838" type="Sprite2D" parent="SpikeTrap/Daco4329847"]
@@ -107,7 +97,6 @@ texture = ExtResource("2_dtrac")
 [node name="Daco4329848" type="Sprite2D" parent="SpikeTrap"]
 unique_name_in_owner = true
 position = Vector2(1780.17, 16.1338)
-scale = Vector2(1, 1)
 texture = ExtResource("2_dtrac")
 
 [node name="Daco4329838" type="Sprite2D" parent="SpikeTrap/Daco4329848"]

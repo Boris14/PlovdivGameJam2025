@@ -9,6 +9,8 @@ extends CharacterBody2D
 
 var is_bubbled := false
 
+signal died
+
 func _physics_process(delta: float) -> void:
 	if not is_bubbled:
 		velocity.x = speed
@@ -29,6 +31,10 @@ func _physics_process(delta: float) -> void:
 	# Move the  character
 	move_and_slide()
 	queue_redraw()
+	
+func die():
+	died.emit()
+	queue_free()
 	
 func on_bubbled():
 	is_bubbled = true

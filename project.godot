@@ -22,6 +22,7 @@ project/assembly_name="Bubbles"
 [global_group]
 
 bubbleable="can be moved by a bubble"
+player=""
 
 [rendering]
 
