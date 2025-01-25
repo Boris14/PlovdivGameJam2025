@@ -7,12 +7,12 @@ extends CharacterBody2D
 @export var trail_start_color: Color = Color.WHITE
 @export var trail_width: float = 2.0
 
-var is_bubbled := false
+var bubble: Bubble
 
 signal died
 
 func _physics_process(delta: float) -> void:
-	if not is_bubbled:
+	if not bubble:
 		velocity.x = speed
 		velocity.y += gravity * delta
 	
@@ -36,16 +36,18 @@ func die():
 	died.emit()
 	queue_free()
 	
-func on_bubbled():
-	is_bubbled = true
+func on_bubbled(in_bubble):
+	if bubble:
+		bubble.pop()
+	bubble = in_bubble
 	
 func on_bubble_popped():
-	is_bubbled = false
+	bubble = null
 
 var position_history: Array[Dictionary] = []
 
 func _draw():
-	if position_history.size() > 1:
+	if bubble and position_history.size() > 1:
 		var current_time = Time.get_ticks_msec()
 		
 		for i in range(1, position_history.size()):
