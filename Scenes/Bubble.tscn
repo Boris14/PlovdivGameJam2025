@@ -1,15 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://tjw5colsjjhs"]
+[gd_scene load_steps=6 format=3 uid="uid://tjw5colsjjhs"]
 
 [ext_resource type="Texture2D" uid="uid://uscgx1yp8aws" path="res://Assets/pink_body_circle.png" id="1_8h1mp"]
 [ext_resource type="Script" path="res://Scripts/Bubble.gd" id="1_n1n57"]
 [ext_resource type="PackedScene" uid="uid://6brfsq80bh54" path="res://Scenes/BubblePaths/BubblePath1.tscn" id="3_no681"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uhtb8"]
-radius = 40.05
+radius = 36.0139
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lpayo"]
+radius = 27.5136
 
 [node name="Bubble" type="AnimatableBody2D"]
-collision_layer = 0
+collision_layer = 4
 script = ExtResource("1_n1n57")
+initial_speed = 300.0
+carry_speed = 200.0
 path_scene = ExtResource("3_no681")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -20,5 +25,8 @@ texture = ExtResource("1_8h1mp")
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 shape = SubResource("CircleShape2D_uhtb8")
+
+[node name="PopCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lpayo")
+debug_color = Color(0.965976, 1.2514e-06, 0.48339, 0.42)

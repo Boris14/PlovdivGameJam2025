@@ -5,9 +5,12 @@ extends AnimatableBody2D
 @export var carry_speed: float = 120.0
 @export var path_scene: PackedScene
 
+var swallow_speed := 30.0
+var full_swallow_treshold := 5
 var velocity := Vector2.ZERO
 var controlled_body: PhysicsBody2D
 var path: BubblePath
+var is_swallowing := false
 
 func _ready():
 	%Area2D.body_entered.connect(_on_body_entered)
@@ -15,7 +18,13 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	if controlled_body:
-		controlled_body.position = position
+		if is_swallowing:
+			controlled_body.global_position = controlled_body.global_position.lerp(global_position, delta * swallow_speed)
+		else:
+			controlled_body.global_position = global_position
+			
+		if controlled_body.global_position.distance_to(global_position) <= full_swallow_treshold:
+			is_swallowing = false
 		if path:
 			global_position = path.move(carry_speed * delta)
 	else:
@@ -37,7 +46,8 @@ func bubble(body):
 	if body.has_method("on_bubbled"):
 		body.on_bubbled()
 		controlled_body = body
-	
+		is_swallowing = true
+
 func pop():
 	if controlled_body and controlled_body.has_method("on_bubble_popped"):
 		controlled_body.on_bubble_popped()
