@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0lbyfjh7ymvt"]
+
+[ext_resource type="Script" path="res://Scripts/BubblePath.gd" id="1_at1q3"]
+
+[sub_resource type="Curve2D" id="Curve2D_ia6r1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 46, -0.877423, 0, 0, 0, 0, 23, -23.6904, -258.319, 3.65715, 258.319, -3.65715, 101, -226.375, 0, 0, 0, 0, 124, -72.8261, 0, 0, 0, 0, 108, -64.9293, 0, 0, 0, 0, 48, -66.6841, 0, 0, 0, 0, 11, -118.452, 0, 0, 0, 0, 45, -176.362, 0, 0, 0, 0, 125, -177.239, 0, 0, 0, 0, 206, -126.349, 0, 0, 0, 0, 232, -97.3939, 0, 0, 0, 0, 250, -61.4196, 0, 0, 0, 0, 184, -28.955, 0, 0, 0, 0, 100, -34.2195, 0, 0, 0, 0, 85, -108.8, 0, 0, 0, 0, 171, -179.872, 0, 0, 0, 0, 256, -152.672, 0, 0, 0, 0, 175, -59.6647)
+}
+point_count = 18
+
+[node name="Path2D" type="Path2D"]
+position = Vector2(-43, -4)
+scale = Vector2(1, 1.1397)
+curve = SubResource("Curve2D_ia6r1")
+script = ExtResource("1_at1q3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(46, -0.877423)
+rotation = -2.36028
