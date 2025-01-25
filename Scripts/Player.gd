@@ -42,7 +42,7 @@ func die():
 	queue_free()
 	
 func on_bubbled(in_bubble):
-	if bubble:
+	if bubble != null and not bubble.is_queued_for_deletion():
 		bubble.pop()
 	bubble = in_bubble
 	

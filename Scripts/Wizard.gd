@@ -8,9 +8,9 @@ enum EBubbleType
 	Back
 }
 
-@export var normal_bubble_scene : PackedScene = preload("res://Scenes/Bubble.tscn")
-@export var spiral_bubble_scene : PackedScene = preload("res://Scenes/Bubble.tscn")
-@export var back_bubble_scene : PackedScene = preload("res://Scenes/Bubble.tscn")
+@export var normal_bubble_scene : PackedScene = preload("res://Scenes/Bubbles/BubbleNormal.tscn")
+@export var spiral_bubble_scene : PackedScene = preload("res://Scenes/Bubbles/BubbleSpiral.tscn")
+@export var back_bubble_scene : PackedScene = preload("res://Scenes/Bubbles/BubbleBack.tscn")
 
 @export var needle_scene : PackedScene = preload("res://Scenes/Needle.tscn")
 @export var follow_speed := 200.0
@@ -68,7 +68,7 @@ func spawn_bubble(pos):
 		EBubbleType.Spiral:
 			bubble = spiral_bubble_scene.instantiate()
 		EBubbleType.Back:
-			bubble = spiral_bubble_scene.instantiate()
+			bubble = back_bubble_scene.instantiate()
 		_:
 			return
 	bubble.global_position = pos

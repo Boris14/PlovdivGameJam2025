@@ -6,18 +6,29 @@ extends Path2D
 @export var gap_length: float = 20.0
 @export var line_color: Color = Color.WHITE
 @export var line_width: float = 2.0
+@export var is_reversed:= false
 
 signal on_finished()
 
 func _ready():
 	path_follow.loop = false
+	if is_reversed:
+		path_follow.progress_ratio = 1
 
 func move(delta_progress: float) -> Vector2:
-	path_follow.progress += delta_progress
-	var new_position = path_follow.global_position
-	if path_follow.progress_ratio >= 1:
-		on_finished.emit()
-		queue_free()
+	var new_position
+	if not is_reversed: 
+		path_follow.progress += delta_progress
+		new_position = path_follow.global_position
+		if path_follow.progress_ratio >= 1:
+			on_finished.emit()
+			queue_free()
+	else:
+		path_follow.progress -= delta_progress
+		new_position = path_follow.global_position
+		if path_follow.progress_ratio <= 0:
+			on_finished.emit()
+			queue_free()
 	return new_position
 	
 func _draw():
