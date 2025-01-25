@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcr71yekqhwys"]
+
+[ext_resource type="Script" path="res://Scripts/BubbleTypeWidget.gd" id="1_0qjuo"]
+[ext_resource type="Texture2D" uid="uid://cxt5l5aibuhlg" path="res://Assets/icon.svg" id="1_ewc6l"]
+
+[node name="BubbleTypeWidget" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0qjuo")
+
+[node name="EnabledImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 128.0
+texture = ExtResource("1_ewc6l")
+
+[node name="DisabledImage" type="TextureRect" parent="."]
+modulate = Color(1, 0.410315, 0.292071, 1)
+offset_right = 150.0
+offset_bottom = 128.0
+texture = ExtResource("1_ewc6l")
+
+[node name="LockedImage" type="TextureRect" parent="."]
+modulate = Color(0, 0.401239, 0.755579, 1)
+offset_right = 150.0
+offset_bottom = 128.0
+texture = ExtResource("1_ewc6l")

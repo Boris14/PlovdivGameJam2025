@@ -1,7 +1,17 @@
 class_name Wizard
 extends CharacterBody2D
 
-@export var bubble_scene : PackedScene = preload("res://Scenes/Bubble.tscn")
+enum EBubbleType
+{
+	Normal,
+	Spiral,
+	Back
+}
+
+@export var normal_bubble_scene : PackedScene = preload("res://Scenes/Bubble.tscn")
+@export var spiral_bubble_scene : PackedScene = preload("res://Scenes/Bubble.tscn")
+@export var back_bubble_scene : PackedScene = preload("res://Scenes/Bubble.tscn")
+
 @export var needle_scene : PackedScene = preload("res://Scenes/Needle.tscn")
 @export var follow_speed := 200.0
 @export var bubble_cooldown := 1.0
@@ -12,8 +22,16 @@ extends CharacterBody2D
 
 var position_history: Array[Dictionary] = []
 
+var unlocked_bubble_types: Array[EBubbleType] = [EBubbleType.Normal, EBubbleType.Spiral, EBubbleType.Back]
+var curr_bubble_type := EBubbleType.Normal
+
+var change_type_delay := 0.1
+
 var can_spawn_bubble := true
 var can_spawn_needle := true
+var can_change_type := true
+
+signal bubble_type_changed(new_type : EBubbleType, unlocked_types : Array[EBubbleType])
 
 func _ready():
 	floor_stop_on_slope = false
@@ -43,7 +61,16 @@ func _physics_process(delta):
 func spawn_bubble(pos):
 	if not can_spawn_bubble:
 		return
-	var bubble = bubble_scene.instantiate()
+	var bubble
+	match(curr_bubble_type):
+		EBubbleType.Normal:
+			bubble = normal_bubble_scene.instantiate()
+		EBubbleType.Spiral:
+			bubble = spiral_bubble_scene.instantiate()
+		EBubbleType.Back:
+			bubble = spiral_bubble_scene.instantiate()
+		_:
+			return
 	bubble.global_position = pos
 	get_tree().current_scene.add_child(bubble)
 	can_spawn_bubble = false
@@ -65,13 +92,30 @@ func spawn_needle(pos):
 	await get_tree().create_timer(needle_cooldown).timeout
 	can_spawn_needle = true
 
-func _unhandled_input(event):
+func set_bubble_type(new_type : EBubbleType):
+	curr_bubble_type = new_type
+	bubble_type_changed.emit(new_type, unlocked_bubble_types)
+	can_change_type = false
+	await get_tree().create_timer(change_type_delay).timeout
+	can_change_type = true
+
+func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed:
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				spawn_bubble($BubbleSpawn.global_position)
 			elif event.button_index == MOUSE_BUTTON_RIGHT:
 				spawn_needle($BubbleSpawn.global_position)
+	
+	if can_change_type and event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			var current_type_index = unlocked_bubble_types.find(curr_bubble_type)
+			var new_index = current_type_index - 1 if current_type_index > 0 else unlocked_bubble_types.size() - 1
+			set_bubble_type(unlocked_bubble_types[new_index])
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			var current_type_index = unlocked_bubble_types.find(curr_bubble_type)
+			var new_index = current_type_index + 1 if current_type_index < unlocked_bubble_types.size() - 1 else 0
+			set_bubble_type(unlocked_bubble_types[new_index])
 
 func _draw():
 	return

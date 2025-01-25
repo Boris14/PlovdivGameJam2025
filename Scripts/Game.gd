@@ -7,6 +7,7 @@ extends Node2D
 @export var wizard_x_offset := 50
 @export var start_delay := 1.5
 
+@onready var hud := %HUD as HUD
 @onready var end_area := $EndLevelArea
 
 func _ready():
@@ -15,7 +16,8 @@ func _ready():
 	player.position = %PlayerStart.position
 	add_child(player)
 	
-	end_area.win.connect(_on_win)
+	if end_area != null:
+		end_area.win.connect(_on_win)
 	
 	await get_tree().create_timer(start_delay).timeout
 	
@@ -24,6 +26,7 @@ func _ready():
 	var wizard = wizard_scene.instantiate() as Wizard
 	wizard.global_position.y = get_global_mouse_position().y
 	wizard.global_position.x = wizard_x_offset
+	wizard.bubble_type_changed.connect(_on_bubble_type_changed)
 	add_child(wizard)
 	
 func _on_player_died():
@@ -35,6 +38,10 @@ func _on_win():
 	else:
 		get_tree().call_deferred("reload_current_scene")
 	
-func _unhandled_input(event):
+func _on_bubble_type_changed(new_type: Wizard.EBubbleType, unlocked_bubble_types : Array[Wizard.EBubbleType]):
+	if hud != null:
+		hud.set_bubble_type(new_type, unlocked_bubble_types)
+	
+func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()

@@ -9,8 +9,10 @@ extends CharacterBody2D
 
 var position_history: Array[Dictionary] = []
 var can_move := false
+var show_trail := false
 
 var bubble: Bubble
+var show_trail_timer : Timer
 
 signal died
 

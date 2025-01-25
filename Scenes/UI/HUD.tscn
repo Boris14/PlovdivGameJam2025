@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://gklf8k88wkxy"]
+
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_a2aqx"]
+[ext_resource type="PackedScene" uid="uid://dcr71yekqhwys" path="res://Scenes/UI/BubbleTypeWidget.tscn" id="1_abitx"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a2aqx")
+
+[node name="BubbleTypeContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 210.0
+offset_bottom = 103.0
+
+[node name="NormalBubbleType" parent="BubbleTypeContainer" instance=ExtResource("1_abitx")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpiralBubbleType" parent="BubbleTypeContainer" instance=ExtResource("1_abitx")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackBubbleType" parent="BubbleTypeContainer" instance=ExtResource("1_abitx")]
+layout_mode = 2
+size_flags_vertical = 3
