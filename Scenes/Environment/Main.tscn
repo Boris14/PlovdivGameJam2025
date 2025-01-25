@@ -8,30 +8,30 @@
 script = ExtResource("1_73d2w")
 
 [node name="Spikes" parent="." instance=ExtResource("5_yoqef")]
-position = Vector2(585, 489)
+position = Vector2(697, 492)
 rotation = -3.13607
 scale = Vector2(0.5, 0.5)
 
 [node name="PlayerStart" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(63, 497)
+position = Vector2(181, 495)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PackedVector2Array(0, 522, 197, 514, 211, 400, 462, 396, 476, 514, 690, 520, 711, 416, 859, 418, 867, 647, 2, 648)
+polygon = PackedVector2Array(150, 515, 354, 515, 356, 408, 573, 407, 575, 513, 770, 514, 766, 405, 970, 405, 973, 516, 1151, 522, 1157, 647, 150, 650)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(350.5, 584.5)
-scale = Vector2(14.4875, 3.175)
+position = Vector2(657.25, 582)
+scale = Vector2(12.6563, 3.175)
 texture = ExtResource("4_bmpd6")
 
 [node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(337.5, 457.5)
-scale = Vector2(3.2625, 2.825)
+position = Vector2(465.75, 463)
+scale = Vector2(2.71875, 2.825)
 texture = ExtResource("4_bmpd6")
 
 [node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(783.25, 475)
-scale = Vector2(1.90625, 2.825)
+position = Vector2(871, 461)
+scale = Vector2(2.54062, 2.825)
 texture = ExtResource("4_bmpd6")
