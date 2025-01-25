@@ -1,22 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://buxxodefo2fgb"]
+[gd_scene load_steps=5 format=3 uid="uid://buxxodefo2fgb"]
 
-[ext_resource type="Texture2D" uid="uid://cxt5l5aibuhlg" path="res://Assets/icon.svg" id="1_3dmld"]
 [ext_resource type="Script" path="res://Scripts/Wizard.gd" id="1_5xsso"]
+[ext_resource type="Texture2D" uid="uid://uc7c1ooipg2c" path="res://Assets/mage.png" id="2_6sfq3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pyyxd"]
-radius = 56.2228
+radius = 224.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aljlr"]
+size = Vector2(151.5, 39)
 
 [node name="Wizard" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
 collision_layer = 8
 collision_mask = 15
 script = ExtResource("1_5xsso")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.731958, 0.000255863, 0.689362, 1)
-texture = ExtResource("1_3dmld")
+texture = ExtResource("2_6sfq3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pyyxd")
 
 [node name="BubbleSpawn" type="Marker2D" parent="."]
-position = Vector2(74, -15)
+position = Vector2(227, -149)
+
+[node name="NeedleCheckArea" type="Area2D" parent="."]
+position = Vector2(194, -149)
+collision_mask = 5
+
+[node name="NeedleCheckCollision" type="CollisionShape2D" parent="NeedleCheckArea"]
+position = Vector2(117.25, -9.5)
+shape = SubResource("RectangleShape2D_aljlr")

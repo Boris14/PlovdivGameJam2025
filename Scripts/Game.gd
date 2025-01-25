@@ -3,7 +3,7 @@ extends Node2D
 
 @export var player_scene : PackedScene = preload("res://Scenes/Player.tscn")
 @export var wizard_scene : PackedScene = preload("res://Scenes/Wizard.tscn")
-@export var wizard_x_offset := 10
+@export var wizard_x_offset := 50
 
 func _ready():
 	var player = player_scene.instantiate() as Player

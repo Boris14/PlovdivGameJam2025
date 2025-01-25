@@ -4,8 +4,8 @@ extends CharacterBody2D
 @export var speed: float = 80.0  # Horizontal movement speed
 @export var gravity: float = 300.0  # Gravity strength in pixels/second²
 @export var trail_duration: float = 1  # Trail duration in seconds
-@export var trail_start_color: Color = Color.WHITE
-@export var trail_width: float = 2.0
+@export var trail_start_color: Color = Color.PINK
+@export var trail_width: float = 10.0
 
 var bubble: Bubble
 

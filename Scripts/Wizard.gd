@@ -3,7 +3,12 @@ extends CharacterBody2D
 
 @export var bubble_scene : PackedScene = preload("res://Scenes/Bubble.tscn")
 @export var needle_scene : PackedScene = preload("res://Scenes/Needle.tscn")
-@export var follow_speed := 10.0
+@export var follow_speed := 8.0
+@export var bubble_cooldown := 1.0
+@export var needle_cooldown := 0.5
+
+var can_spawn_bubble := true
+var can_spawn_needle := true
 
 func _ready():
 	pass
@@ -15,15 +20,21 @@ func _physics_process(delta):
 		target_y, 
 		follow_speed * delta
 	)
+	
+func spawn_bubble(pos):
+	var bubble = bubble_scene.instantiate()
+	bubble.global_position = $BubbleSpawn.global_position
+	get_tree().current_scene.add_child(bubble)
+	
+func spawn_needle(pos):
+	var needle = needle_scene.instantiate()
+	needle.global_position = $BubbleSpawn.global_position
+	get_tree().current_scene.add_child(needle)
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.pressed:
 			if event.button_index == MOUSE_BUTTON_LEFT:
-				var bubble = bubble_scene.instantiate()
-				bubble.global_position = $BubbleSpawn.global_position
-				get_tree().current_scene.add_child(bubble)
+				spawn_bubble($BubbleSpawn.global_position)
 			elif event.button_index == MOUSE_BUTTON_RIGHT:
-				var needle = needle_scene.instantiate()
-				needle.global_position = $BubbleSpawn.global_position
-				get_tree().current_scene.add_child(needle)
+				spawn_needle($BubbleSpawn.global_position)
