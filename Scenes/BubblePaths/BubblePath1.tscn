@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://6brfsq80bh54"]
+
+[ext_resource type="Script" path="res://Scripts/BubblePath.gd" id="1_26q7k"]
+
+[sub_resource type="Curve2D" id="Curve2D_ia6r1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, -219.374, 47.0913, 219.374, -47.0913, 260, -272, 0, 0, 0, 0, 510, 4)
+}
+point_count = 3
+
+[node name="Path2D" type="Path2D"]
+position = Vector2(0, -1)
+curve = SubResource("Curve2D_ia6r1")
+script = ExtResource("1_26q7k")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+unique_name_in_owner = true
+rotation = -0.807951

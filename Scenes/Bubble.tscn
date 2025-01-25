@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://tjw5colsjjhs"]
+[gd_scene load_steps=5 format=3 uid="uid://tjw5colsjjhs"]
 
 [ext_resource type="Texture2D" uid="uid://uscgx1yp8aws" path="res://Assets/pink_body_circle.png" id="1_8h1mp"]
 [ext_resource type="Script" path="res://Scripts/Bubble.gd" id="1_n1n57"]
+[ext_resource type="PackedScene" uid="uid://6brfsq80bh54" path="res://Scenes/BubblePaths/BubblePath1.tscn" id="3_no681"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uhtb8"]
 radius = 40.05
@@ -9,7 +10,7 @@ radius = 40.05
 [node name="Bubble" type="AnimatableBody2D"]
 collision_layer = 0
 script = ExtResource("1_n1n57")
-initial_speed = 200.0
+path_scene = ExtResource("3_no681")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.341176)
