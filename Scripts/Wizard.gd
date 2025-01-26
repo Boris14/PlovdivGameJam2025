@@ -22,7 +22,6 @@ enum EBubbleType
 
 @onready var bubble_launch_sfx: AudioStreamPlayer = $SFX/BubbleLaunchSfx
 @onready var needle_launch_sfx: AudioStreamPlayer = $SFX/NeedleLaunchSfx
-@onready var bubble_pop_sfx: AudioStreamPlayer = $SFX/BubblePopSfx
 
 var position_history: Array[Dictionary] = []
 
@@ -89,7 +88,6 @@ func spawn_needle(pos):
 	for body in $NeedleCheckArea.get_overlapping_bodies():
 		if body is Bubble:
 			body.pop()
-			bubble_pop_sfx.play()
 			return
 			
 	var needle = needle_scene.instantiate()

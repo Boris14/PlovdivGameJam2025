@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://buxxodefo2fgb"]
+[gd_scene load_steps=7 format=3 uid="uid://buxxodefo2fgb"]
 
 [ext_resource type="Script" path="res://Scripts/Wizard.gd" id="1_5xsso"]
 [ext_resource type="Texture2D" uid="uid://uc7c1ooipg2c" path="res://Assets/mage.png" id="2_6sfq3"]
 [ext_resource type="AudioStream" uid="uid://bm5hx8rlff6w8" path="res://Audio/SFX/bubble_launch_sfx.ogg" id="3_rk5ay"]
 [ext_resource type="AudioStream" uid="uid://0da04cs36mpp" path="res://Audio/SFX/needle_launch_sfx.ogg" id="4_0614o"]
-[ext_resource type="AudioStream" uid="uid://ccgc5cw0yhose" path="res://Audio/SFX/bubble_pop_sfx.ogg" id="5_6c7nq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lj4u7"]
 size = Vector2(364, 360)
@@ -49,7 +48,3 @@ volume_db = 10.0
 [node name="NeedleLaunchSfx" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("4_0614o")
 volume_db = 10.0
-
-[node name="BubblePopSfx" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("5_6c7nq")
-volume_db = 24.0
