@@ -12,5 +12,5 @@ func _ready():
 	music_manager.enter_menu()
 	
 func _input(event):
-	if event is InputEventMouseButton and event.is_pressed() and game_scene != null:
-		get_tree().change_scene_to_packed(game_scene)
+	if event is InputEventMouseButton and event.is_pressed():
+		get_tree().change_scene_to_file("res://Scenes/Environment/Main.tscn")
