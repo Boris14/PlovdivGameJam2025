@@ -13,6 +13,8 @@ var music_manager : MusicManager
 @onready var hud := %HUD as HUD
 @onready var end_area := $EndLevelArea
 
+var wizard
+
 func _ready():
 	hud.visible = false
 	music_manager = music_manager_scene.instantiate()
@@ -31,7 +33,7 @@ func _ready():
 	
 	player.can_move = true
 	
-	var wizard = wizard_scene.instantiate() as Wizard
+	wizard = wizard_scene.instantiate() as Wizard
 	wizard.global_position.y = get_global_mouse_position().y
 	wizard.global_position.x = wizard_x_offset
 	wizard.bubble_type_changed.connect(_on_bubble_type_changed)
@@ -41,8 +43,9 @@ func _on_player_died():
 	get_tree().reload_current_scene()
 	
 func _on_win():
-	#music_manager.win_game(_on_win_sound_finished)
+	wizard.teleport()
 	music_manager.level_transition(_on_win_sound_finished)
+	#music_manager.win_game(_on_win_sound_finished)
 	
 func _on_win_sound_finished():
 	if next_level_scene != null:

@@ -22,6 +22,9 @@ enum EBubbleType
 
 @onready var bubble_launch_sfx: AudioStreamPlayer = $SFX/BubbleLaunchSfx
 @onready var needle_launch_sfx: AudioStreamPlayer = $SFX/NeedleLaunchSfx
+@onready var animation_player = $Sprite2D/AnimationPlayer
+@onready var ui_switch_sfx = $SFX/UiSwitchSfx
+@onready var wizzard_teleport_sfx = $SFX/WizzardTeleportSfx
 
 var position_history: Array[Dictionary] = []
 
@@ -41,7 +44,15 @@ func _ready():
 	floor_snap_length = 0.0
 	floor_max_angle = 0.0
 	set_bubble_type(EBubbleType.Normal)
+	animation_player.animation_finished.connect(_on_appeared)
+	animation_player.speed_scale = 1.5
+	animation_player.play("appear")
+	wizzard_teleport_sfx.play()
 	
+func _on_appeared():
+	animation_player.disconnect("animation_finished", _on_appeared)
+	animation_player.play("idle")
+
 func _physics_process(delta):
 	var target_y = get_global_mouse_position().y + 50
 	velocity.y = (target_y - global_position.y) * follow_speed * delta
@@ -102,8 +113,12 @@ func set_bubble_type(new_type : EBubbleType):
 	curr_bubble_type = new_type
 	bubble_type_changed.emit(new_type, unlocked_bubble_types)
 	can_change_type = false
+	ui_switch_sfx.play()
 	await get_tree().create_timer(change_type_delay).timeout
 	can_change_type = true
+
+func teleport():
+	animation_player.play_backwards("appear")
 
 func _input(event):
 	if event is InputEventMouseButton:

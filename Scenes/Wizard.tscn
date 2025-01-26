@@ -1,9 +1,68 @@
-[gd_scene load_steps=7 format=3 uid="uid://buxxodefo2fgb"]
+[gd_scene load_steps=16 format=3 uid="uid://buxxodefo2fgb"]
 
 [ext_resource type="Script" path="res://Scripts/Wizard.gd" id="1_5xsso"]
 [ext_resource type="Texture2D" uid="uid://uc7c1ooipg2c" path="res://Assets/mage.png" id="2_6sfq3"]
 [ext_resource type="AudioStream" uid="uid://bm5hx8rlff6w8" path="res://Audio/SFX/bubble_launch_sfx.ogg" id="3_rk5ay"]
+[ext_resource type="Texture2D" uid="uid://b7rriq434kjs5" path="res://Assets/Effects/mage_frame_3.png" id="3_uuuif"]
+[ext_resource type="Texture2D" uid="uid://d4hfhprpddbce" path="res://Assets/Effects/mage_frame_2.png" id="4_85e2m"]
 [ext_resource type="AudioStream" uid="uid://0da04cs36mpp" path="res://Audio/SFX/needle_launch_sfx.ogg" id="4_0614o"]
+[ext_resource type="Texture2D" uid="uid://c6hiresyj8ybh" path="res://Assets/Effects/mage_frame_1.png" id="5_e4egh"]
+[ext_resource type="AudioStream" uid="uid://d3e6ilstkxqgj" path="res://Audio/SFX/ui_switch_sfx.wav" id="8_vrvvj"]
+[ext_resource type="AudioStream" uid="uid://b81mhqni0efe7" path="res://Audio/SFX/wizzard_teleport_sfx.ogg" id="9_ujjpj"]
+
+[sub_resource type="Animation" id="Animation_k3f4x"]
+resource_name = "appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_uuuif"), ExtResource("4_85e2m"), ExtResource("5_e4egh"), ExtResource("2_6sfq3")]
+}
+
+[sub_resource type="Animation" id="Animation_j8n1p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_6sfq3")]
+}
+
+[sub_resource type="Animation" id="Animation_k34ip"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_6sfq3")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fyflw"]
+_data = {
+"RESET": SubResource("Animation_j8n1p"),
+"appear": SubResource("Animation_k3f4x"),
+"idle": SubResource("Animation_k34ip")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lj4u7"]
 size = Vector2(364, 360)
@@ -23,6 +82,12 @@ script = ExtResource("1_5xsso")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_6sfq3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_fyflw")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-46, -28)
@@ -48,3 +113,9 @@ volume_db = 10.0
 [node name="NeedleLaunchSfx" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("4_0614o")
 volume_db = 10.0
+
+[node name="UiSwitchSfx" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("8_vrvvj")
+
+[node name="WizzardTeleportSfx" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("9_ujjpj")
