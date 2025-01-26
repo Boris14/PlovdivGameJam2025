@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://f3t10g308jd"]
+
+[ext_resource type="Texture2D" uid="uid://b7slbtkd0qev7" path="res://Assets/IMG_7830.png" id="1_7hmke"]
+[ext_resource type="Script" path="res://Scripts/Boss.gd" id="1_fmcqo"]
+[ext_resource type="Texture2D" uid="uid://cdaryhqmo4t5" path="res://Assets/IMG_7832.png" id="2_ya8tm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt0w7"]
+size = Vector2(541, 1568)
+
+[node name="Boss" type="Area2D" groups=["Boss"]]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_fmcqo")
+health = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nt0w7")
+
+[node name="Normal" type="Sprite2D" parent="."]
+position = Vector2(57, -125)
+texture = ExtResource("1_7hmke")
+
+[node name="Damaged" type="Sprite2D" parent="."]
+position = Vector2(57, -125)
+texture = ExtResource("2_ya8tm")

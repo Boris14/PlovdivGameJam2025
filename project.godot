@@ -35,6 +35,7 @@ project/assembly_name="Bubbles"
 bubbleable="can be moved by a bubble"
 player=""
 wizard="the wizard"
+Boss="final boss"
 
 [rendering]
 

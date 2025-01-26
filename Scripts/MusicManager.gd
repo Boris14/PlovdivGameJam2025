@@ -25,9 +25,10 @@ func level_transition(on_sound_finished : Callable):
 	$WizzardTeleportSfx.finished.connect(on_sound_finished)
 	$WizzardTeleportSfx.play()
 	
-func win_game(on_sound_finished : Callable):
+func win_game(on_sound_finished):
 	$MainMusic.volume_db = -80
 	$MainAmbient.volume_db = -80
 	$MainMusicAddPercussion.volume_db = -80
-	$WinGameMusic.finished.connect(on_sound_finished)
+	if on_sound_finished != null:
+		$WinGameMusic.finished.connect(on_sound_finished)
 	$WinGameMusic.play()

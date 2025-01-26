@@ -40,15 +40,23 @@ func _on_body_entered(body):
 	collision_processed = true
 	
 	if body is Bubble:
-		#body.pop()
-		call_deferred("queue_free")
+		hit()
 	elif body is Player:
-		needle_hit_sfx.play()
 		body.call_deferred("die")
-		call_deferred("queue_free")
+		hit()
+	elif body.is_in_group("boss"):
+		body.take_damage()
+		hit()
+
+func hit():
+	$Sprite2D.visible = false
+	$CollisionShape2D.disabled = true
+	needle_hit_sfx.play()
+	await get_tree().create_timer(0.2).timeout
+	call_deferred("queue_free")
 
 func _draw():
-	if position_history.size() > 1:
+	if $Sprite2D.visible and position_history.size() > 1:
 		var current_time = Time.get_ticks_msec()
 		
 		for i in range(1, position_history.size()):

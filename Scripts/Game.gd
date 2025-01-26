@@ -13,10 +13,14 @@ var music_manager : MusicManager
 
 @onready var hud := %HUD as HUD
 @onready var end_area := $EndLevelArea
+@onready var boss := $Boss as Boss
 
 var wizard
 
 func _ready():
+	if boss != null:
+		boss.win_game.connect(_on_win)
+		
 	hud.visible = false
 	music_manager = music_manager_scene.instantiate()
 	get_tree().current_scene.add_child(music_manager)
@@ -28,7 +32,7 @@ func _ready():
 	add_child(player)
 	
 	if end_area != null:
-		end_area.win.connect(_on_win)
+		end_area.win.connect(_on_level_finish)
 	
 	await get_tree().create_timer(start_delay).timeout
 	
@@ -43,10 +47,14 @@ func _ready():
 func _on_player_died():
 	get_tree().reload_current_scene()
 	
-func _on_win():
+func _on_level_finish():
 	wizard.teleport()
 	music_manager.level_transition(_on_win_sound_finished)
-	#music_manager.win_game(_on_win_sound_finished)
+
+func _on_win():
+	music_manager.win_game(null)
+	await get_tree().create_timer(2.0).timeout
+	_on_win_sound_finished()
 	
 func _on_win_sound_finished():
 	if next_level_scene != null:

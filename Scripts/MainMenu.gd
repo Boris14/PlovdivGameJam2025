@@ -14,3 +14,5 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
 		get_tree().change_scene_to_file("res://Scenes/Environment/Main.tscn")
+	elif event.is_action_pressed("ui_cancel"):
+		get_tree().quit()
