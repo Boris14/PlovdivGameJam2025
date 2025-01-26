@@ -20,6 +20,10 @@ enum EBubbleType
 @export var trail_start_color: Color = Color.WHITE
 @export var trail_width: float = 3.0
 
+@onready var bubble_launch_sfx: AudioStreamPlayer = $SFX/BubbleLaunchSfx
+@onready var needle_launch_sfx: AudioStreamPlayer = $SFX/NeedleLaunchSfx
+@onready var bubble_pop_sfx: AudioStreamPlayer = $SFX/BubblePopSfx
+
 var position_history: Array[Dictionary] = []
 
 var unlocked_bubble_types: Array[EBubbleType] = [EBubbleType.Normal, EBubbleType.Spiral, EBubbleType.Back]
@@ -73,6 +77,7 @@ func spawn_bubble(pos):
 			return
 	bubble.global_position = pos
 	get_tree().current_scene.add_child(bubble)
+	bubble_launch_sfx.play()
 	can_spawn_bubble = false
 	await get_tree().create_timer(bubble_cooldown).timeout
 	can_spawn_bubble = true
@@ -83,11 +88,13 @@ func spawn_needle(pos):
 	for body in $NeedleCheckArea.get_overlapping_bodies():
 		if body is Bubble:
 			body.pop()
+			bubble_pop_sfx.play()
 			return
 			
 	var needle = needle_scene.instantiate()
 	needle.global_position = pos
 	get_tree().current_scene.add_child(needle)
+	needle_launch_sfx.play()
 	can_spawn_needle = false
 	await get_tree().create_timer(needle_cooldown).timeout
 	can_spawn_needle = true

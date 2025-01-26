@@ -1,0 +1,105 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhlcumcmmxdow"]
+
+[ext_resource type="Texture2D" uid="uid://f1rqj7sfpph2" path="res://Assets/tile_half.png" id="1_4ieuf"]
+[ext_resource type="Texture2D" uid="uid://hqcdv6hmltf4" path="res://Assets/Spikes.png" id="2_x43wa"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlayerStart" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(63, 497)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(0, 522, 197, 514, 211, 400, 462, 396, 476, 514, 690, 520, 711, 416, 859, 418, 867, 647, 2, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(431.5, 584.5)
+scale = Vector2(10.7375, 3.175)
+texture = ExtResource("1_4ieuf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(337.5, 457.5)
+scale = Vector2(3.2625, 2.825)
+texture = ExtResource("1_4ieuf")
+
+[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(783.25, 475)
+scale = Vector2(1.90625, 2.825)
+texture = ExtResource("1_4ieuf")
+
+[node name="SpikeTrap" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(492, 497)
+scale = Vector2(0.101676, 0.0619817)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329838" type="Sprite2D" parent="SpikeTrap"]
+unique_name_in_owner = true
+position = Vector2(796.648, 0)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329839" type="Sprite2D" parent="SpikeTrap"]
+unique_name_in_owner = true
+position = Vector2(422.912, 0)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329840" type="Sprite2D" parent="SpikeTrap"]
+unique_name_in_owner = true
+position = Vector2(609.78, 0)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329841" type="Sprite2D" parent="SpikeTrap"]
+unique_name_in_owner = true
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329842" type="Sprite2D" parent="SpikeTrap"]
+unique_name_in_owner = true
+position = Vector2(216.373, -16.1338)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329843" type="Sprite2D" parent="SpikeTrap"]
+unique_name_in_owner = true
+position = Vector2(993.351, 16.1338)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329844" type="Sprite2D" parent="SpikeTrap"]
+unique_name_in_owner = true
+position = Vector2(1160.55, 16.1338)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329845" type="Sprite2D" parent="SpikeTrap"]
+unique_name_in_owner = true
+position = Vector2(796.648, 0)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329846" type="Sprite2D" parent="SpikeTrap"]
+unique_name_in_owner = true
+position = Vector2(1357.25, 16.1338)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329838" type="Sprite2D" parent="SpikeTrap/Daco4329846"]
+position = Vector2(573, 497)
+scale = Vector2(0.101676, 0.0619817)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329847" type="Sprite2D" parent="SpikeTrap"]
+unique_name_in_owner = true
+position = Vector2(1583.46, 16.1338)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329838" type="Sprite2D" parent="SpikeTrap/Daco4329847"]
+position = Vector2(573, 497)
+scale = Vector2(0.101676, 0.0619817)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329848" type="Sprite2D" parent="SpikeTrap"]
+unique_name_in_owner = true
+position = Vector2(1780.17, 16.1338)
+texture = ExtResource("2_x43wa")
+
+[node name="Daco4329838" type="Sprite2D" parent="SpikeTrap/Daco4329848"]
+position = Vector2(573, 497)
+scale = Vector2(0.101676, 0.0619817)
+texture = ExtResource("2_x43wa")
