@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://f1rqj7sfpph2" path="res://Assets/tile_half.png" id="1_t4wp0"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_y656b"]
-[ext_resource type="PackedScene" uid="uid://c2k0oawkd1lj0" path="res://Scenes/Environment/LevelMockups/Level3.tscn" id="2_dwere"]
+[ext_resource type="PackedScene" uid="uid://c2k0oawkd1lj0" path="res://Scenes/Environment/Level3.tscn" id="2_dwere"]
 [ext_resource type="Texture2D" uid="uid://hqcdv6hmltf4" path="res://Assets/Spikes.png" id="2_me44r"]
 [ext_resource type="Texture2D" uid="uid://twt64eqf2gft" path="res://Assets/crate.png" id="3_lvcmt"]
 [ext_resource type="PackedScene" uid="uid://dm8phkrqf2fio" path="res://Scenes/Environment/EndLevelArea.tscn" id="6_cj4x4"]
