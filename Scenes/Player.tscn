@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://df0nmf1eirk2a"]
+[gd_scene load_steps=5 format=3 uid="uid://df0nmf1eirk2a"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2lqyo"]
 [ext_resource type="Texture2D" uid="uid://bh0eh2mv5sjey" path="res://Assets/cat.png" id="2_8foku"]
+[ext_resource type="AudioStream" uid="uid://ccgc5cw0yhose" path="res://Audio/SFX/bubble_pop_sfx.ogg" id="3_mb684"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0j8i"]
 radius = 110.018
@@ -18,3 +19,9 @@ texture = ExtResource("2_8foku")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_d0j8i")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="BubblePopSfx" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_mb684")
+volume_db = 10.0

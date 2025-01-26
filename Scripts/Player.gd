@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var trail_duration: float = 1  # Trail duration in seconds
 @export var trail_start_color: Color = Color.PINK
 @export var trail_width: float = 10.0
+@onready var bubble_pop_sfx: AudioStreamPlayer = $SFX/BubblePopSfx
 
 var position_history: Array[Dictionary] = []
 var can_move := false
@@ -44,6 +45,7 @@ func die():
 func on_bubbled(in_bubble):
 	if bubble != null and not bubble.is_queued_for_deletion():
 		bubble.pop()
+		bubble_pop_sfx.play()
 	bubble = in_bubble
 	
 func on_bubble_popped():
