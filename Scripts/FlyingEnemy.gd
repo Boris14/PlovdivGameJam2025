@@ -6,6 +6,8 @@ var swallow_speed := 20
 @export var radius: float = 200.0  # Size of the infinity shape
 @export var speed: float = 1.0     # Movement speed
 
+@onready var animation_player = $Sprite2D/AnimationPlayer
+
 var bubble = null
 var initial_position: Vector2
 var time: float = 0.0
@@ -13,6 +15,8 @@ var time: float = 0.0
 func _ready():
 	body_entered.connect(_on_body_entered)
 	initial_position = global_position
+	animation_player.speed_scale = 0.8
+	animation_player.play("idle")
 
 func _process(delta):
 	if bubble != null:

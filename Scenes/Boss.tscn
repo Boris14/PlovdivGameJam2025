@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://f3t10g308jd"]
+[gd_scene load_steps=7 format=3 uid="uid://f3t10g308jd"]
 
 [ext_resource type="Texture2D" uid="uid://b7slbtkd0qev7" path="res://Assets/IMG_7830.png" id="1_7hmke"]
 [ext_resource type="Script" path="res://Scripts/Boss.gd" id="1_fmcqo"]
+[ext_resource type="PackedScene" uid="uid://cc1beoa8t58p4" path="res://Scenes/BossNeedle.tscn" id="2_fq3si"]
 [ext_resource type="Texture2D" uid="uid://cdaryhqmo4t5" path="res://Assets/IMG_7832.png" id="2_ya8tm"]
+[ext_resource type="AudioStream" uid="uid://0da04cs36mpp" path="res://Audio/SFX/needle_launch_sfx.ogg" id="5_l84n1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nt0w7"]
 size = Vector2(541, 1568)
@@ -10,7 +12,7 @@ size = Vector2(541, 1568)
 [node name="Boss" type="Area2D" groups=["Boss"]]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_fmcqo")
-health = 2
+needle_scene = ExtResource("2_fq3si")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nt0w7")
@@ -22,3 +24,17 @@ texture = ExtResource("1_7hmke")
 [node name="Damaged" type="Sprite2D" parent="."]
 position = Vector2(57, -125)
 texture = ExtResource("2_ya8tm")
+
+[node name="ShootPositions" type="Node2D" parent="."]
+
+[node name="ShootPosition1" type="Marker2D" parent="ShootPositions"]
+position = Vector2(18.3333, -455)
+
+[node name="ShootPosition2" type="Marker2D" parent="ShootPositions"]
+position = Vector2(-165, -126.667)
+
+[node name="ShootPosition3" type="Marker2D" parent="ShootPositions"]
+position = Vector2(-200, 371.667)
+
+[node name="NeedleLaunchSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_l84n1")

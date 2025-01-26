@@ -10,6 +10,7 @@ var collision_processed: bool = false
 @export var trail_width: float = 5.0
 
 var position_history: Array[Dictionary] = []
+var direction = 1
 
 func _ready():
 	body_entered.connect(_on_body_entered)
@@ -31,7 +32,7 @@ func _physics_process(delta):
 	)
 	queue_redraw()
 			
-	position.x += speed * delta
+	position.x += speed * delta * direction
 	
 func _on_body_entered(body):
 	if collision_processed:
@@ -41,11 +42,8 @@ func _on_body_entered(body):
 	
 	if body is Bubble:
 		hit()
-	elif body is Player:
-		body.call_deferred("die")
-		hit()
-	elif body.is_in_group("boss"):
-		body.take_damage()
+	elif body is Player and is_in_group("Boss"):
+		body.die()
 		hit()
 
 func hit():

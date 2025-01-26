@@ -8,7 +8,6 @@ extends Node2D
 @export var music_manager_scene : PackedScene = preload("res://Scenes/MusicManager.tscn")
 @export var next_level_index := -1
 
-var menu_scene := preload("res://Scenes/MainMenu.tscn")
 var music_manager : MusicManager
 
 @onready var hud := %HUD as HUD
@@ -56,7 +55,7 @@ func _on_level_finish():
 
 func _on_win():
 	music_manager.win_game(null)
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	_on_win_sound_finished()
 	
 func _on_win_sound_finished():
@@ -70,7 +69,7 @@ func _on_win_sound_finished():
 		4:
 			get_tree().change_scene_to_file("res://Scenes/Environment/Main5.tscn")
 		_:
-			get_tree().call_deferred("change_scene_to_packed", menu_scene)
+			get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 	
 func _on_bubble_type_changed(new_type: Wizard.EBubbleType, unlocked_bubble_types : Array[Wizard.EBubbleType]):
 	if hud != null:

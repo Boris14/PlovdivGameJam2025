@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1gbxcbndoib8"]
+[gd_scene load_steps=9 format=3 uid="uid://c1gbxcbndoib8"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_ovpyh"]
 [ext_resource type="PackedScene" uid="uid://bfxhqhj1w8n4g" path="res://Scenes/Environment/Background.tscn" id="3_3ocgc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://gklf8k88wkxy" path="res://Scenes/UI/HUD.tscn" id="6_0el8e"]
 [ext_resource type="PackedScene" uid="uid://dm8phkrqf2fio" path="res://Scenes/Environment/EndLevelArea.tscn" id="7_aejgy"]
 [ext_resource type="PackedScene" uid="uid://c1fggev4cif1e" path="res://Scenes/MusicManager.tscn" id="8_shud6"]
+[ext_resource type="PackedScene" uid="uid://b0blh2qw26phn" path="res://Scenes/Environment/FlyingEnemy.tscn" id="8_wllmd"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ovpyh")
@@ -45,3 +46,6 @@ position = Vector2(1946, 193)
 scale = Vector2(4.84, 8.36)
 
 [node name="MusicManager" parent="." instance=ExtResource("8_shud6")]
+
+[node name="FlyingEnemy" parent="." instance=ExtResource("8_wllmd")]
+position = Vector2(939, 360)

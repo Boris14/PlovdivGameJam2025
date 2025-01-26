@@ -42,4 +42,3 @@ scale = Vector2(1, 23.68)
 
 [node name="Boss" parent="." instance=ExtResource("7_cdkvi")]
 position = Vector2(1581, 571)
-health = 10

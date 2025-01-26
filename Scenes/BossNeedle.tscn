@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc1beoa8t58p4"]
+
+[ext_resource type="Script" path="res://Scripts/Needle.gd" id="1_sexmn"]
+[ext_resource type="Texture2D" uid="uid://cdwnhs4xb6eno" path="res://Assets/needles.png" id="2_mt68c"]
+[ext_resource type="AudioStream" uid="uid://ccgc5cw0yhose" path="res://Audio/SFX/bubble_pop_sfx.ogg" id="3_jne23"]
+[ext_resource type="AudioStream" uid="uid://buyo8wclcykc1" path="res://Audio/SFX/needle_hit_sfx.ogg" id="4_kv2qb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4103"]
+size = Vector2(529, 27)
+
+[node name="Needle" type="Area2D" groups=["Boss"]]
+scale = Vector2(0.3, 0.3)
+collision_mask = 7
+script = ExtResource("1_sexmn")
+speed = 1200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+rotation = 3.14159
+texture = ExtResource("2_mt68c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 0)
+shape = SubResource("RectangleShape2D_f4103")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="BubblePopSfx" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_jne23")
+volume_db = 10.0
+
+[node name="NeedleHitSfx" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_kv2qb")
+volume_db = 10.0

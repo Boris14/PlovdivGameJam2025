@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd7e2ap6h45ab"]
+[gd_scene load_steps=9 format=3 uid="uid://bd7e2ap6h45ab"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_8k80i"]
 [ext_resource type="PackedScene" uid="uid://bfxhqhj1w8n4g" path="res://Scenes/Environment/Background.tscn" id="2_nym7y"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://gklf8k88wkxy" path="res://Scenes/UI/HUD.tscn" id="5_sx2uq"]
 [ext_resource type="PackedScene" uid="uid://dm8phkrqf2fio" path="res://Scenes/Environment/EndLevelArea.tscn" id="6_c5nu1"]
 [ext_resource type="PackedScene" uid="uid://c1fggev4cif1e" path="res://Scenes/MusicManager.tscn" id="7_5bgj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p243i"]
+size = Vector2(345.5, 173.681)
 
 [node name="Game" type="Node2D"]
 scale = Vector2(1, 0.99608)
@@ -29,7 +32,7 @@ texture = ExtResource("4_3kpea")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
 position = Vector2(937, 617)
 scale = Vector2(176.273, -95.5505)
-polygon = PackedVector2Array(-5.42341, 0.7012, -5.43475, -3.85137, -2.47344, -3.86183, -1.6395, -2.58502, -1.04384, -2.55362, -0.641051, -2.44897, -0.158844, -3.51646, -0.0453839, -3.75718, 1.10057, -3.73624, 1.49768, -2.03034, 2.41671, -2.135, 2.59257, -2.51176, 2.60392, -3.98742, 2.59257, -3.96649, 3.72717, -3.8723, 3.71583, -3.45367, 4.14698, -2.73154, 4.77668, -2.4699, 5.16245, -1.97801, 5.77513, -1.91522, 5.8659, -3.91416, 5.94532, -5.92357, 0.00567245, -8.61324, -7.50539, -7.91204, -7.50539, -0.72213, -5.87724, 1.58032)
+polygon = PackedVector2Array(-5.42341, 0.7012, -5.43475, -3.85137, -2.57555, -3.72383, -1.08355, -3.04088, -0.561629, -3.14595, -0.158844, -3.51646, -0.0453839, -3.75718, 1.10057, -3.73624, 1.49768, -2.03034, 2.41671, -2.135, 2.59257, -2.51176, 2.60392, -3.98742, 2.59257, -3.96649, 3.72717, -3.8723, 3.71583, -3.45367, 4.14698, -2.73154, 4.77668, -2.4699, 5.16245, -1.97801, 5.77513, -1.91522, 5.8659, -3.91416, 5.94532, -5.92357, 0.00567245, -8.61324, -7.50539, -7.91204, -7.50539, -0.72213, -5.87724, 1.58032)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -51,3 +54,10 @@ scale = Vector2(0.384013, 1.48769)
 position = Vector2(1478, 941)
 rotation = -3.13607
 scale = Vector2(0.305117, 3.28832)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(767.25, 500.462)
+shape = SubResource("RectangleShape2D_p243i")

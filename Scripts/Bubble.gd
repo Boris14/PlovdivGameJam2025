@@ -48,7 +48,10 @@ func _on_body_entered(body):
 func _on_area_entered(area):  
 	if area.is_in_group("wizard"):
 		return
-	if controlled_body != null:
+	if area is Needle:
+		area.hit()
+		pop()
+	elif controlled_body != null:
 		pop()
 	elif area.is_in_group("bubbleable"):
 		bubble(area)
