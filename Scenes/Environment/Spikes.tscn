@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://theliutdjrf0"]
+[gd_scene load_steps=5 format=3 uid="uid://theliutdjrf0"]
 
 [ext_resource type="Script" path="res://Scripts/Spikes.gd" id="1_btern"]
 [ext_resource type="Texture2D" uid="uid://d3xhwjnltmsoj" path="res://Assets/Spikes1.png" id="2_dx2aa"]
+[ext_resource type="AudioStream" uid="uid://d0l6aucb0cek6" path="res://Audio/SFX/fall_on_needles_sfx.ogg" id="3_3h5vu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxdhi"]
 size = Vector2(735, 136)
@@ -18,3 +19,9 @@ shape = SubResource("RectangleShape2D_jxdhi")
 visible = false
 position = Vector2(0, 51)
 texture = ExtResource("2_dx2aa")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="FallOnNeedlesSfx" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_3h5vu")
+volume_db = 10.0

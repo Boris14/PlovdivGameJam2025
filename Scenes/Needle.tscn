@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://snrlk7tn8o2f"]
+[gd_scene load_steps=6 format=3 uid="uid://snrlk7tn8o2f"]
 
 [ext_resource type="Script" path="res://Scripts/Needle.gd" id="1_c83cd"]
 [ext_resource type="Texture2D" uid="uid://cdwnhs4xb6eno" path="res://Assets/needles.png" id="2_ldxn8"]
 [ext_resource type="AudioStream" uid="uid://ccgc5cw0yhose" path="res://Audio/SFX/bubble_pop_sfx.ogg" id="3_x3qsh"]
+[ext_resource type="AudioStream" uid="uid://buyo8wclcykc1" path="res://Audio/SFX/needle_hit_sfx.ogg" id="4_tlv4c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4103"]
 size = Vector2(529, 27)
@@ -23,4 +24,8 @@ shape = SubResource("RectangleShape2D_f4103")
 
 [node name="BubblePopSfx" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_x3qsh")
+volume_db = 10.0
+
+[node name="NeedleHitSfx" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_tlv4c")
 volume_db = 10.0

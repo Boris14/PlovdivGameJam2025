@@ -39,6 +39,9 @@ func _physics_process(delta: float) -> void:
 	queue_redraw()
 	
 func die():
+	modulate = Color.RED
+	self_modulate = Color.RED
+	await get_tree().create_timer(0.3).timeout
 	died.emit()
 	queue_free()
 	
