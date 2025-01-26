@@ -5,6 +5,7 @@ extends AnimatableBody2D
 @export var carry_speed: float = 120.0
 @export var path_scene: PackedScene
 @onready var pop_sound: AudioStream = preload("res://Audio/SFX/bubble_pop_sfx.ogg")
+@onready var bubble_wrap_sfx: AudioStreamPlayer = $SFX/BubbleWrapSfx
 
 var swallow_speed := 50.0
 var full_swallow_treshold := 10
@@ -30,6 +31,7 @@ func _physics_process(delta: float) -> void:
 		if controlled_body.global_position.distance_to(global_position) <= full_swallow_treshold:
 			is_swallowing = false
 		if path:
+			
 			global_position = path.move(carry_speed * delta)
 	else:
 		position = position + velocity * delta
@@ -53,6 +55,7 @@ func bubble(body):
 		body.on_bubbled(self)
 		controlled_body = body
 		is_swallowing = true
+		bubble_wrap_sfx.play()
 
 func pop():
 	if controlled_body and not controlled_body.is_queued_for_deletion() and controlled_body.has_method("on_bubble_popped"):

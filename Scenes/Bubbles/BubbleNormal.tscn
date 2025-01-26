@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://tjw5colsjjhs"]
+[gd_scene load_steps=7 format=3 uid="uid://tjw5colsjjhs"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble.gd" id="1_3hyfw"]
 [ext_resource type="PackedScene" uid="uid://6brfsq80bh54" path="res://Scenes/BubblePaths/BubblePathNormal.tscn" id="2_a1l7u"]
 [ext_resource type="Texture2D" uid="uid://cwecst7g0e6cf" path="res://Assets/balloon.png" id="3_ekepw"]
+[ext_resource type="AudioStream" uid="uid://b56ghuudhwutr" path="res://Audio/SFX/bubble_wrap_sfx.ogg" id="4_1s8wv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uhtb8"]
 radius = 188.409
@@ -14,6 +15,7 @@ radius = 178.07
 scale = Vector2(0.4, 0.4)
 collision_layer = 4
 script = ExtResource("1_3hyfw")
+initial_speed = 800.0
 carry_speed = 200.0
 path_scene = ExtResource("2_a1l7u")
 
@@ -29,3 +31,9 @@ shape = SubResource("CircleShape2D_uhtb8")
 [node name="PopCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lpayo")
 debug_color = Color(0.965976, 1.2514e-06, 0.48339, 0.42)
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="BubbleWrapSfx" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_1s8wv")
+volume_db = 10.0

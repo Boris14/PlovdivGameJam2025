@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm8phkrqf2fio"]
+[gd_scene load_steps=4 format=3 uid="uid://dm8phkrqf2fio"]
 
 [ext_resource type="Script" path="res://Scripts/EndLevelArea.gd" id="1_h6spo"]
+[ext_resource type="AudioStream" uid="uid://b81mhqni0efe7" path="res://Audio/SFX/wizzard_teleport_sfx.ogg" id="2_e7ql7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvm4u"]
 size = Vector2(81, 52.5)
@@ -10,3 +11,9 @@ script = ExtResource("1_h6spo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xvm4u")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="WizzardTeleportSfx" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_e7ql7")
+volume_db = 10.0
