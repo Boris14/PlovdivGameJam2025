@@ -32,6 +32,7 @@ var unlocked_bubble_types: Array[EBubbleType] = [EBubbleType.Normal, EBubbleType
 var curr_bubble_type := EBubbleType.Normal
 
 var change_type_delay := 0.1
+var stop := false
 
 var can_spawn_bubble := true
 var can_spawn_needle := true
@@ -54,6 +55,8 @@ func _on_appeared():
 	animation_player.play("idle")
 
 func _physics_process(delta):
+	if stop:
+		return
 	var target_y = get_global_mouse_position().y + 50
 	velocity.y = (target_y - global_position.y) * follow_speed * delta
 	
@@ -74,7 +77,7 @@ func _physics_process(delta):
 	queue_redraw()
 	
 func spawn_bubble(pos):
-	if not can_spawn_bubble:
+	if not can_spawn_bubble or stop:
 		return
 	var bubble
 	match(curr_bubble_type):
@@ -94,7 +97,7 @@ func spawn_bubble(pos):
 	can_spawn_bubble = true
 	
 func spawn_needle(pos):
-	if not can_spawn_needle:
+	if not can_spawn_needle or stop:
 		return
 	for body in $NeedleCheckArea.get_overlapping_bodies():
 		if body is Bubble:
@@ -118,9 +121,12 @@ func set_bubble_type(new_type : EBubbleType):
 	can_change_type = true
 
 func teleport():
+	stop = true
 	animation_player.play_backwards("appear")
 
 func _input(event):
+	if stop:
+		return
 	if event is InputEventMouseButton:
 		if event.pressed:
 			if event.button_index == MOUSE_BUTTON_LEFT:
