@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0blh2qw26phn"]
+
+[ext_resource type="Script" path="res://Scripts/MovableObject.gd" id="1_gleum"]
+[ext_resource type="Texture2D" uid="uid://d1qk1pfgxt4fe" path="res://Assets/IMG_7828.png" id="2_57y1x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mv83s"]
+size = Vector2(176, 176)
+
+[node name="Platform" type="AnimatableBody2D" groups=["bubbleable"]]
+script = ExtResource("1_gleum")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(27, -15)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_57y1x")
+
+[node name="Colliision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mv83s")
