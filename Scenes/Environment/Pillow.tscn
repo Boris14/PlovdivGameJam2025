@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://qxwwvgwn1wyw"]
+
+[ext_resource type="Script" path="res://Scripts/MovableObject.gd" id="1_p26dk"]
+[ext_resource type="Texture2D" uid="uid://dq6p655al2mfv" path="res://Assets/pillow.png" id="2_p5d35"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mv83s"]
+size = Vector2(118, 53.5)
+
+[node name="Platform" type="RigidBody2D" groups=["bubbleable"]]
+gravity_scale = 0.0
+script = ExtResource("1_p26dk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_p5d35")
+
+[node name="Colliision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mv83s")
