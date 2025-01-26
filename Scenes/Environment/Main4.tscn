@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1gbxcbndoib8"]
+[gd_scene load_steps=8 format=3 uid="uid://c1gbxcbndoib8"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_ovpyh"]
-[ext_resource type="PackedScene" uid="uid://csgvnkm2r4trv" path="res://Scenes/Environment/Main2.tscn" id="2_3amj7"]
 [ext_resource type="PackedScene" uid="uid://bfxhqhj1w8n4g" path="res://Scenes/Environment/Background.tscn" id="3_3ocgc"]
 [ext_resource type="PackedScene" uid="uid://theliutdjrf0" path="res://Scenes/Environment/Spikes.tscn" id="4_yfi6g"]
 [ext_resource type="Texture2D" uid="uid://b7pxfmyy67rga" path="res://Assets/IMG_7825.png" id="5_3dyyu"]
@@ -11,8 +10,8 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ovpyh")
-next_level_scene = ExtResource("2_3amj7")
 wizard_x_offset = 150
+next_level_index = 4
 
 [node name="Background" parent="." instance=ExtResource("3_3ocgc")]
 
@@ -43,6 +42,6 @@ unique_name_in_owner = true
 
 [node name="EndLevelArea" parent="." instance=ExtResource("7_aejgy")]
 position = Vector2(1946, 193)
-scale = Vector2(4.84, 1)
+scale = Vector2(4.84, 8.36)
 
 [node name="MusicManager" parent="." instance=ExtResource("8_shud6")]

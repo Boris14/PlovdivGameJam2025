@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bd7e2ap6h45ab"]
+[gd_scene load_steps=8 format=3 uid="uid://bd7e2ap6h45ab"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_8k80i"]
-[ext_resource type="PackedScene" uid="uid://c1gbxcbndoib8" path="res://Scenes/Environment/Main4.tscn" id="2_i47cp"]
 [ext_resource type="PackedScene" uid="uid://bfxhqhj1w8n4g" path="res://Scenes/Environment/Background.tscn" id="2_nym7y"]
 [ext_resource type="PackedScene" uid="uid://theliutdjrf0" path="res://Scenes/Environment/Spikes.tscn" id="3_jaw37"]
 [ext_resource type="Texture2D" uid="uid://cach4j2aaqhgg" path="res://Assets/IMG_7842.png" id="4_3kpea"]
@@ -10,16 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://c1fggev4cif1e" path="res://Scenes/MusicManager.tscn" id="7_5bgj5"]
 
 [node name="Game" type="Node2D"]
+scale = Vector2(1, 0.99608)
 script = ExtResource("1_8k80i")
-next_level_scene = ExtResource("2_i47cp")
 wizard_x_offset = 150
+next_level_index = 3
 
 [node name="Background" parent="." instance=ExtResource("2_nym7y")]
-
-[node name="Spikes" parent="." instance=ExtResource("3_jaw37")]
-position = Vector2(772, 614)
-rotation = -3.13607
-scale = Vector2(0.235189, 0.972829)
 
 [node name="PlayerStart" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -42,7 +37,8 @@ polygon = PackedVector2Array(-5.42341, 0.7012, -5.43475, -3.85137, -2.47344, -3.
 unique_name_in_owner = true
 
 [node name="EndLevelArea" parent="." instance=ExtResource("6_c5nu1")]
-position = Vector2(1885, 774)
+position = Vector2(1885, 773.03)
+scale = Vector2(1, 29.7929)
 
 [node name="MusicManager" parent="." instance=ExtResource("7_5bgj5")]
 

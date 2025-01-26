@@ -1,12 +1,12 @@
 class_name Game
 extends Node2D
 
-@export var next_level_scene : PackedScene
 @export var player_scene : PackedScene = preload("res://Scenes/Player.tscn")
 @export var wizard_scene : PackedScene = preload("res://Scenes/Wizard.tscn")
 @export var wizard_x_offset := 110
 @export var start_delay := 1.5
 @export var music_manager_scene : PackedScene = preload("res://Scenes/MusicManager.tscn")
+@export var next_level_index := -1
 
 var menu_scene := preload("res://Scenes/MainMenu.tscn")
 var music_manager : MusicManager
@@ -30,6 +30,9 @@ func _ready():
 	player.died.connect(_on_player_died)
 	player.position = %PlayerStart.position
 	add_child(player)
+	
+	if next_level_index == -1:
+		music_manager.boss_enter()
 	
 	if end_area != null:
 		end_area.win.connect(_on_level_finish)
@@ -57,12 +60,17 @@ func _on_win():
 	_on_win_sound_finished()
 	
 func _on_win_sound_finished():
-	if next_level_scene != null:
-		get_tree().call_deferred("change_scene_to_packed", next_level_scene)
-	else:
-		get_tree().call_deferred("change_scene_to_packed", menu_scene)
-		#get_tree().quit()
-		#get_tree().call_deferred("reload_current_scene")
+	match(next_level_index):
+		1:
+			get_tree().change_scene_to_file("res://Scenes/Environment/Main2.tscn")
+		2:
+			get_tree().change_scene_to_file("res://Scenes/Environment/Main3.tscn")
+		3:
+			get_tree().change_scene_to_file("res://Scenes/Environment/Main4.tscn")
+		4:
+			get_tree().change_scene_to_file("res://Scenes/Environment/Main5.tscn")
+		_:
+			get_tree().call_deferred("change_scene_to_packed", menu_scene)
 	
 func _on_bubble_type_changed(new_type: Wizard.EBubbleType, unlocked_bubble_types : Array[Wizard.EBubbleType]):
 	if hud != null:
