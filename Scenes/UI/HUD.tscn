@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://gklf8k88wkxy"]
+[gd_scene load_steps=6 format=3 uid="uid://gklf8k88wkxy"]
 
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_a2aqx"]
 [ext_resource type="PackedScene" uid="uid://dcr71yekqhwys" path="res://Scenes/UI/BubbleTypeWidget.tscn" id="1_abitx"]
+[ext_resource type="Texture2D" uid="uid://kgj8h8l1xuna" path="res://Assets/UI_bounce.png" id="3_v38bq"]
+[ext_resource type="Texture2D" uid="uid://dnjr6qipo25rm" path="res://Assets/UI_Spiral.png" id="4_3de5r"]
+[ext_resource type="Texture2D" uid="uid://d4byqdrd2kyq0" path="res://Assets/UI_back.png" id="5_gp3n4"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -12,20 +15,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a2aqx")
 
-[node name="BubbleTypeContainer" type="VBoxContainer" parent="."]
+[node name="BubbleTypeContainer" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 210.0
-offset_bottom = 103.0
+offset_right = 584.0
+offset_bottom = 174.0
+alignment = 1
 
 [node name="NormalBubbleType" parent="BubbleTypeContainer" instance=ExtResource("1_abitx")]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+bubble_texture = ExtResource("3_v38bq")
 
 [node name="SpiralBubbleType" parent="BubbleTypeContainer" instance=ExtResource("1_abitx")]
 layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 3
+bubble_texture = ExtResource("4_3de5r")
 
 [node name="BackBubbleType" parent="BubbleTypeContainer" instance=ExtResource("1_abitx")]
 layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 3
+bubble_texture = ExtResource("5_gp3n4")

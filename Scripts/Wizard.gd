@@ -37,6 +37,7 @@ func _ready():
 	floor_stop_on_slope = false
 	floor_snap_length = 0.0
 	floor_max_angle = 0.0
+	set_bubble_type(EBubbleType.Normal)
 	
 func _physics_process(delta):
 	var target_y = get_global_mouse_position().y + 47

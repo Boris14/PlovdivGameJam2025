@@ -14,6 +14,7 @@ var music_manager : MusicManager
 @onready var end_area := $EndLevelArea
 
 func _ready():
+	hud.visible = false
 	music_manager = music_manager_scene.instantiate()
 	get_tree().current_scene.add_child(music_manager)
 	music_manager.start_game()
@@ -51,6 +52,7 @@ func _on_win_sound_finished():
 	
 func _on_bubble_type_changed(new_type: Wizard.EBubbleType, unlocked_bubble_types : Array[Wizard.EBubbleType]):
 	if hud != null:
+		hud.visible = true
 		hud.set_bubble_type(new_type, unlocked_bubble_types)
 	
 func _input(event):
