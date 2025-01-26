@@ -1,4 +1,4 @@
-class_name MovableObject
+class_name FlyingEnemy
 extends Area2D
 
 var swallow_speed := 20

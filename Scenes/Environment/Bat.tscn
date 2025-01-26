@@ -1,23 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvrpu33a8w68y"]
+[gd_scene load_steps=3 format=3 uid="uid://bfo5dt8ldatq4"]
 
 [ext_resource type="PackedScene" uid="uid://b0blh2qw26phn" path="res://Scenes/Environment/FlyingEnemy.tscn" id="1_0g4qc"]
 
 [sub_resource type="Curve2D" id="Curve2D_7qwdp"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -610, 326, 0, 0, 0, 0, -606, -285, 0, 0, 0, 0, 570, 318, 0, 0, 0, 0, 577, -287)
+"points": PackedVector2Array(0, 0, 0, 0, -616.667, -6.66667, 0, 0, 0, 0, -350, -6.66667, 0, 0, 0, 0, 326.667, 10, 0, 0, 0, 0, 596.667, 6.66667)
 }
 point_count = 4
 
 [node name="Bat" type="Node2D"]
 scale = Vector2(0.3, 0.3)
 
-[node name="FlyingEnemy" parent="." node_paths=PackedStringArray("path", "origin") instance=ExtResource("1_0g4qc")]
-path = NodePath("../Path2D/PathFollow2D")
-origin = NodePath("..")
+[node name="FlyingEnemy" parent="." instance=ExtResource("1_0g4qc")]
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_7qwdp")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-610, 326)
-rotation = -1.56425
+position = Vector2(596.667, 6.66667)
+rotation = -0.012345
+progress = 1276.43
+loop = false

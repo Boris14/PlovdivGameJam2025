@@ -10,12 +10,13 @@ extends AnimatableBody2D
 var swallow_speed := 50.0
 var full_swallow_treshold := 10
 var velocity := Vector2.ZERO
-var controlled_body: PhysicsBody2D
+var controlled_body: Node2D
 var path: BubblePath
 var is_swallowing := false
 
 func _ready():
 	%Area2D.body_entered.connect(_on_body_entered)
+	%Area2D.area_entered.connect(_on_area_entered)
 	velocity.x = initial_speed
 
 func _physics_process(delta: float) -> void:
@@ -37,15 +38,27 @@ func _physics_process(delta: float) -> void:
 		position = position + velocity * delta
 
 func _on_body_entered(body):    
-	if body.is_in_group("bubbleable"):
+	if body.is_in_group("wizard"):
+		return
+	if controlled_body != null:
+		pop()	
+	elif body.is_in_group("bubbleable"):
 		bubble(body)
-	elif controlled_body != null:
+
+func _on_area_entered(area):  
+	if area.is_in_group("wizard"):
+		return
+	if controlled_body != null:
 		pop()
+	elif area.is_in_group("bubbleable"):
+		bubble(area)
 
 func _on_path_finished():
 	pop()
 
 func bubble(body):
+	if controlled_body != null:
+		return
 	path = path_scene.instantiate() as BubblePath
 	path.on_finished.connect(_on_path_finished)
 	get_tree().current_scene.add_child(path)
