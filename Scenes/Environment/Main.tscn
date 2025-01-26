@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bl62y8yw5moxg"]
+[gd_scene load_steps=9 format=3 uid="uid://bl62y8yw5moxg"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_73d2w"]
+[ext_resource type="PackedScene" uid="uid://csgvnkm2r4trv" path="res://Scenes/Environment/Main2.tscn" id="2_qus0l"]
 [ext_resource type="PackedScene" uid="uid://bfxhqhj1w8n4g" path="res://Scenes/Environment/Background.tscn" id="3_uy3bh"]
 [ext_resource type="PackedScene" uid="uid://gklf8k88wkxy" path="res://Scenes/UI/HUD.tscn" id="4_kcncc"]
 [ext_resource type="Texture2D" uid="uid://dhgorn8a0tex4" path="res://Assets/Background/IMG_7817.png" id="5_31rpe"]
@@ -10,6 +11,7 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_73d2w")
+next_level_scene = ExtResource("2_qus0l")
 wizard_x_offset = 150
 
 [node name="Background" parent="." instance=ExtResource("3_uy3bh")]

@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1gbxcbndoib8"]
+
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_ovpyh"]
+[ext_resource type="PackedScene" uid="uid://csgvnkm2r4trv" path="res://Scenes/Environment/Main2.tscn" id="2_3amj7"]
+[ext_resource type="PackedScene" uid="uid://bfxhqhj1w8n4g" path="res://Scenes/Environment/Background.tscn" id="3_3ocgc"]
+[ext_resource type="PackedScene" uid="uid://theliutdjrf0" path="res://Scenes/Environment/Spikes.tscn" id="4_yfi6g"]
+[ext_resource type="Texture2D" uid="uid://b7pxfmyy67rga" path="res://Assets/IMG_7825.png" id="5_3dyyu"]
+[ext_resource type="PackedScene" uid="uid://gklf8k88wkxy" path="res://Scenes/UI/HUD.tscn" id="6_0el8e"]
+[ext_resource type="PackedScene" uid="uid://dm8phkrqf2fio" path="res://Scenes/Environment/EndLevelArea.tscn" id="7_aejgy"]
+[ext_resource type="PackedScene" uid="uid://c1fggev4cif1e" path="res://Scenes/MusicManager.tscn" id="8_shud6"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ovpyh")
+next_level_scene = ExtResource("2_3amj7")
+wizard_x_offset = 150
+
+[node name="Background" parent="." instance=ExtResource("3_3ocgc")]
+
+[node name="Spikes" parent="." instance=ExtResource("4_yfi6g")]
+position = Vector2(948, 1012)
+rotation = -3.13607
+scale = Vector2(1.90355, 1.48769)
+
+[node name="PlayerStart" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(118, 774)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D3" type="Sprite2D" parent="Ground"]
+position = Vector2(960, 540)
+texture = ExtResource("5_3dyyu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(954, 623)
+scale = Vector2(176.273, -95.5505)
+polygon = PackedVector2Array(-4.2888, -2.20826, -3.97111, -3.92463, -1.9969, -3.83043, 2.26353, -3.90369, 2.96132, -2.52223, 3.55131, 2.59549, 4.10727, 4.15487, 4.79937, 4.2386, 5.02629, 4.09208, 5.5482, 0.669803, 8.28259, -5.55727, 0.00567245, -8.61324, -7.50539, -7.91204, -7.50539, -0.72213, -5.87724, 1.58032, -5.41773, -1.94661)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("6_0el8e")]
+unique_name_in_owner = true
+
+[node name="EndLevelArea" parent="." instance=ExtResource("7_aejgy")]
+position = Vector2(1946, 193)
+scale = Vector2(4.84, 1)
+
+[node name="MusicManager" parent="." instance=ExtResource("8_shud6")]
