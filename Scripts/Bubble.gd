@@ -1,7 +1,7 @@
 class_name Bubble
 extends AnimatableBody2D
 
-@export var initial_speed: float = 200.0  # Horizontal movement speed
+@export var initial_speed: float = 400.0  # Horizontal movement speed
 @export var carry_speed: float = 120.0
 @export var path_scene: PackedScene
 @onready var bubble_pop_sfx: AudioStreamPlayer = $SFX/BubblePopSfx
@@ -55,7 +55,8 @@ func bubble(body):
 		is_swallowing = true
 
 func pop():
-	bubble_pop_sfx.play()
+	if bubble_pop_sfx != null:
+		bubble_pop_sfx.play()
 	if controlled_body and not controlled_body.is_queued_for_deletion() and controlled_body.has_method("on_bubble_popped"):
 		controlled_body.on_bubble_popped()
 	queue_free()

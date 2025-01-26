@@ -4,7 +4,7 @@ extends Node2D
 @export var next_level_scene : PackedScene
 @export var player_scene : PackedScene = preload("res://Scenes/Player.tscn")
 @export var wizard_scene : PackedScene = preload("res://Scenes/Wizard.tscn")
-@export var wizard_x_offset := 90
+@export var wizard_x_offset := 110
 @export var start_delay := 1.5
 @export var music_manager_scene : PackedScene = preload("res://Scenes/MusicManager.tscn")
 

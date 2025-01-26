@@ -1,7 +1,7 @@
 class_name Needle
 extends Area2D
 
-@export var speed: float = 500.0 
+@export var speed: float = 700.0 
 var collision_processed: bool = false
 @onready var bubble_pop_sfx: AudioStreamPlayer = $SFX/BubblePopSfx
 

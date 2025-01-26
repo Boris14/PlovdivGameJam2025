@@ -44,7 +44,7 @@ func _ready():
 	set_bubble_type(EBubbleType.Normal)
 	
 func _physics_process(delta):
-	var target_y = get_global_mouse_position().y + 47
+	var target_y = get_global_mouse_position().y + 50
 	velocity.y = (target_y - global_position.y) * follow_speed * delta
 	
 	# Store current position with timestamp

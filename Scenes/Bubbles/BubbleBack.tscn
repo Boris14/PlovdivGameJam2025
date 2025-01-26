@@ -11,9 +11,10 @@ radius = 188.409
 radius = 178.07
 
 [node name="Bubble" type="AnimatableBody2D"]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.4, 0.4)
 collision_layer = 4
 script = ExtResource("1_bs142")
+initial_speed = 500.0
 carry_speed = 200.0
 path_scene = ExtResource("2_yw72v")
 
