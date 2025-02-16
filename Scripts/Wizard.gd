@@ -45,13 +45,13 @@ func _ready():
 	floor_snap_length = 0.0
 	floor_max_angle = 0.0
 	set_bubble_type(EBubbleType.Normal)
-	animation_player.animation_finished.connect(_on_appeared)
+	animation_player.animation_finished.connect(_on_appear_animation_finished)
 	animation_player.speed_scale = 1.5
 	animation_player.play("appear")
 	wizzard_teleport_sfx.play()
 	
-func _on_appeared():
-	animation_player.disconnect("animation_finished", _on_appeared)
+func _on_appear_animation_finished(_anim_name : String):
+	animation_player.disconnect("animation_finished", _on_appear_animation_finished)
 	animation_player.play("idle")
 
 func _physics_process(delta):
@@ -101,7 +101,7 @@ func spawn_needle(pos):
 		return
 	for body in $NeedleCheckArea.get_overlapping_bodies():
 		if body is Bubble:
-			body.pop()
+			body.pop(true)
 			return
 			
 	var needle = needle_scene.instantiate()
@@ -143,26 +143,3 @@ func _input(event):
 			var current_type_index = unlocked_bubble_types.find(curr_bubble_type)
 			var new_index = current_type_index + 1 if current_type_index < unlocked_bubble_types.size() - 1 else 0
 			set_bubble_type(unlocked_bubble_types[new_index])
-
-func _draw():
-	return
-	if position_history.size() > 1:
-		var current_time = Time.get_ticks_msec()
-		
-		for i in range(1, position_history.size()):
-			var start = position_history[i-1]
-			var end = position_history[i]
-			
-			# Calculate fade based on time difference
-			var time_diff = current_time - start.timestamp
-			var alpha = max(0, 1.0 - (time_diff / (trail_duration * 1000.0)))
-			
-			var fade_color = trail_start_color
-			fade_color.a = alpha
-			
-			draw_line(
-				to_local(start.position),
-				to_local(end.position),
-				fade_color,
-				trail_width
-			)

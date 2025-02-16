@@ -46,9 +46,6 @@ func die():
 	queue_free()
 	
 func on_bubbled(in_bubble):
-	if bubble != null and not bubble.is_queued_for_deletion():
-		bubble.pop()
-		bubble_pop_sfx.play()
 	bubble = in_bubble
 	
 func on_bubble_popped():

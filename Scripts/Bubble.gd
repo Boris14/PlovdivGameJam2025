@@ -3,6 +3,7 @@ extends AnimatableBody2D
 
 @export var initial_speed: float = 400.0  # Horizontal movement speed
 @export var carry_speed: float = 120.0
+@export var pop_texture : Texture2D 
 @export var path_scene: PackedScene
 @onready var pop_sound: AudioStream = preload("res://Audio/SFX/bubble_pop_sfx.ogg")
 @onready var bubble_wrap_sfx: AudioStreamPlayer = $SFX/BubbleWrapSfx
@@ -31,8 +32,7 @@ func _physics_process(delta: float) -> void:
 			
 		if controlled_body.global_position.distance_to(global_position) <= full_swallow_treshold:
 			is_swallowing = false
-		if path:
-			
+		if path != null:
 			global_position = path.move(carry_speed * delta)
 	else:
 		position = position + velocity * delta
@@ -41,7 +41,7 @@ func _on_body_entered(body):
 	if body.is_in_group("wizard"):
 		return
 	if controlled_body != null:
-		pop()	
+		pop(true)	
 	elif body.is_in_group("bubbleable"):
 		bubble(body)
 
@@ -50,14 +50,14 @@ func _on_area_entered(area):
 		return
 	if area is Needle:
 		area.hit()
-		pop()
+		pop(true)
 	elif controlled_body != null:
-		pop()
+		pop(true)
 	elif area.is_in_group("bubbleable"):
 		bubble(area)
 
 func _on_path_finished():
-	pop()
+	pop(true)
 
 func bubble(body):
 	if controlled_body != null:
@@ -73,11 +73,19 @@ func bubble(body):
 		is_swallowing = true
 		bubble_wrap_sfx.play()
 
-func pop():
+func pop(play_effect : bool):
 	if controlled_body and not controlled_body.is_queued_for_deletion() and controlled_body.has_method("on_bubble_popped"):
 		controlled_body.on_bubble_popped()
 	var pop_sfx = AudioStreamPlayer.new()
 	pop_sfx.stream = pop_sound
 	get_tree().current_scene.add_child(pop_sfx)
 	pop_sfx.play()
-	queue_free()
+	$Area2D/CollisionShape2D.set_deferred("disabled", true)
+	$PopCollision.set_deferred("disabled", true)
+	velocity = Vector2.ZERO
+	if play_effect:
+		$Sprite2D.texture = pop_texture
+		await get_tree().create_timer(0.08).timeout
+		queue_free()
+	else:
+		queue_free()

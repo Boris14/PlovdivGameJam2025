@@ -48,7 +48,7 @@ func _on_body_entered(body):
 
 func hit():
 	$Sprite2D.visible = false
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
 	needle_hit_sfx.play()
 	await get_tree().create_timer(0.2).timeout
 	call_deferred("queue_free")

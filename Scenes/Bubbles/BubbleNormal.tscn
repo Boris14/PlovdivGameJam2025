@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://tjw5colsjjhs"]
+[gd_scene load_steps=8 format=3 uid="uid://tjw5colsjjhs"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble.gd" id="1_3hyfw"]
 [ext_resource type="PackedScene" uid="uid://6brfsq80bh54" path="res://Scenes/BubblePaths/BubblePathNormal.tscn" id="2_a1l7u"]
+[ext_resource type="Texture2D" uid="uid://dgkstgulutnd0" path="res://Assets/Effects/bubble_frame_2.png" id="2_mkxrx"]
 [ext_resource type="Texture2D" uid="uid://cwecst7g0e6cf" path="res://Assets/balloon.png" id="3_ekepw"]
 [ext_resource type="AudioStream" uid="uid://b56ghuudhwutr" path="res://Audio/SFX/bubble_wrap_sfx.ogg" id="4_1s8wv"]
 
@@ -17,6 +18,7 @@ collision_layer = 4
 script = ExtResource("1_3hyfw")
 initial_speed = 800.0
 carry_speed = 200.0
+pop_texture = ExtResource("2_mkxrx")
 path_scene = ExtResource("2_a1l7u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
