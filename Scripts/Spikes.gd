@@ -11,4 +11,4 @@ func _on_body_entered(body: Node2D):
 		fall_on_needles_sfx.play()
 		body.call_deferred("die")
 	elif body is Bubble:
-		body.pop()
+		body.pop(true)

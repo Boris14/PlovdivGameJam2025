@@ -13,6 +13,7 @@ var music_manager : MusicManager
 @onready var hud := %HUD as HUD
 @onready var end_area := $EndLevelArea
 @onready var boss := $Boss as Boss
+@onready var controls := $CanvasLayer/Controls as Controls
 
 var wizard
 
@@ -37,6 +38,9 @@ func _ready():
 		end_area.win.connect(_on_level_finish)
 	
 	await get_tree().create_timer(start_delay).timeout
+	
+	if controls != null:
+		controls.start()
 	
 	player.can_move = true
 	

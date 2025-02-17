@@ -55,6 +55,8 @@ func go_to_next_screen():
 			for image in images:
 				image.visible = false
 			images[1].visible = true
+			await get_tree().create_timer(0.2).timeout
+			$MeowPlayer.play()
 		2:
 			for image in images:
 				image.visible = false

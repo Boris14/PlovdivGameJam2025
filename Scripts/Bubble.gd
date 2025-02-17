@@ -73,7 +73,7 @@ func bubble(body):
 		is_swallowing = true
 		bubble_wrap_sfx.play()
 
-func pop(play_effect : bool):
+func pop(play_effect : bool = true):
 	if controlled_body and not controlled_body.is_queued_for_deletion() and controlled_body.has_method("on_bubble_popped"):
 		controlled_body.on_bubble_popped()
 	var pop_sfx = AudioStreamPlayer.new()

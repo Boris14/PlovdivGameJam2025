@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://besf7bitliffb"]
+
+[ext_resource type="Texture2D" uid="uid://5sqxqx6ptn6j" path="res://Assets/Input Prompts/mouse_left_outline.png" id="1_aepa8"]
+[ext_resource type="Script" path="res://Scripts/Controls.gd" id="1_coi6s"]
+[ext_resource type="Texture2D" uid="uid://sxuodalqp1ge" path="res://Assets/Input Prompts/mouse_right_outline.png" id="2_fokf1"]
+[ext_resource type="Texture2D" uid="uid://d2838errl37kl" path="res://Assets/Input Prompts/mouse_scroll_vertical_outline.png" id="3_wa4lt"]
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_coi6s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -510.0
+offset_top = 47.0
+offset_right = -299.0
+offset_bottom = 251.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ShootBubble" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_aepa8")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = " -    Shoot Bubble"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ShootNeedle" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_fokf1")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "-     Shoot Needle
+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ChangeBubbleType" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("3_wa4lt")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "-     Change Bubble"
