@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://csgvnkm2r4trv"]
+[gd_scene load_steps=10 format=3 uid="uid://csgvnkm2r4trv"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_8bgug"]
 [ext_resource type="PackedScene" uid="uid://bfxhqhj1w8n4g" path="res://Scenes/Environment/Background.tscn" id="2_b62lw"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dm8phkrqf2fio" path="res://Scenes/Environment/EndLevelArea.tscn" id="6_sveh0"]
 [ext_resource type="PackedScene" uid="uid://c1fggev4cif1e" path="res://Scenes/MusicManager.tscn" id="7_ksjpt"]
 [ext_resource type="PackedScene" uid="uid://qxwwvgwn1wyw" path="res://Scenes/Environment/Pillow.tscn" id="8_56mbj"]
+[ext_resource type="PackedScene" uid="uid://cmlt3vtlog805" path="res://Scenes/Environment/Roof.tscn" id="9_eqe46"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_8bgug")
@@ -49,3 +50,6 @@ scale = Vector2(1, 37.48)
 
 [node name="Platform" parent="." instance=ExtResource("8_56mbj")]
 position = Vector2(654, 545)
+
+[node name="Roof" parent="." instance=ExtResource("9_eqe46")]
+position = Vector2(962, 0)

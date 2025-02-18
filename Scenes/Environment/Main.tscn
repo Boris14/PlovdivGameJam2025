@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bl62y8yw5moxg"]
+[gd_scene load_steps=10 format=3 uid="uid://bl62y8yw5moxg"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_73d2w"]
 [ext_resource type="PackedScene" uid="uid://bfxhqhj1w8n4g" path="res://Scenes/Environment/Background.tscn" id="3_uy3bh"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://theliutdjrf0" path="res://Scenes/Environment/Spikes.tscn" id="5_yoqef"]
 [ext_resource type="PackedScene" uid="uid://besf7bitliffb" path="res://Scenes/UI/Controls.tscn" id="6_7eu8a"]
 [ext_resource type="PackedScene" uid="uid://c1fggev4cif1e" path="res://Scenes/MusicManager.tscn" id="8_qpy4g"]
+[ext_resource type="PackedScene" uid="uid://cmlt3vtlog805" path="res://Scenes/Environment/Roof.tscn" id="9_2te15"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_73d2w")
@@ -48,3 +49,6 @@ position = Vector2(1950, 463)
 scale = Vector2(4.88, 17.2)
 
 [node name="MusicManager" parent="." instance=ExtResource("8_qpy4g")]
+
+[node name="Roof" parent="." instance=ExtResource("9_2te15")]
+position = Vector2(962, 0)

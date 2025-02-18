@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bikwoiop70x44"]
+[gd_scene load_steps=9 format=3 uid="uid://bikwoiop70x44"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_eapp8"]
 [ext_resource type="Texture2D" uid="uid://n7pk1y15qjkn" path="res://Assets/IMG_7829.png" id="3_jg1vx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://gklf8k88wkxy" path="res://Scenes/UI/HUD.tscn" id="6_q0hry"]
 [ext_resource type="PackedScene" uid="uid://f3t10g308jd" path="res://Scenes/Boss.tscn" id="7_cdkvi"]
 [ext_resource type="PackedScene" uid="uid://dm8phkrqf2fio" path="res://Scenes/Environment/EndLevelArea.tscn" id="7_yqleh"]
+[ext_resource type="PackedScene" uid="uid://cmlt3vtlog805" path="res://Scenes/Environment/Roof.tscn" id="8_5tpxe"]
 [ext_resource type="PackedScene" uid="uid://c1fggev4cif1e" path="res://Scenes/MusicManager.tscn" id="8_8072m"]
 
 [node name="Game" type="Node2D"]
@@ -42,3 +43,6 @@ scale = Vector2(1, 23.68)
 
 [node name="Boss" parent="." instance=ExtResource("7_cdkvi")]
 position = Vector2(1581, 571)
+
+[node name="Roof" parent="." instance=ExtResource("8_5tpxe")]
+position = Vector2(962, 0)

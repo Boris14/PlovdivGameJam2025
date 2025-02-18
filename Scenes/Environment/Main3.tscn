@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bd7e2ap6h45ab"]
+[gd_scene load_steps=10 format=3 uid="uid://bd7e2ap6h45ab"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_8k80i"]
 [ext_resource type="PackedScene" uid="uid://bfxhqhj1w8n4g" path="res://Scenes/Environment/Background.tscn" id="2_nym7y"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://gklf8k88wkxy" path="res://Scenes/UI/HUD.tscn" id="5_sx2uq"]
 [ext_resource type="PackedScene" uid="uid://dm8phkrqf2fio" path="res://Scenes/Environment/EndLevelArea.tscn" id="6_c5nu1"]
 [ext_resource type="PackedScene" uid="uid://c1fggev4cif1e" path="res://Scenes/MusicManager.tscn" id="7_5bgj5"]
+[ext_resource type="PackedScene" uid="uid://cmlt3vtlog805" path="res://Scenes/Environment/Roof.tscn" id="8_i3cfw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p243i"]
 size = Vector2(345.5, 173.681)
@@ -61,3 +62,6 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(767.25, 500.462)
 shape = SubResource("RectangleShape2D_p243i")
+
+[node name="Roof" parent="." instance=ExtResource("8_i3cfw")]
+position = Vector2(962, 0)

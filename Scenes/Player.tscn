@@ -11,6 +11,7 @@ radius = 110.018
 scale = Vector2(0.4, 0.4)
 collision_mask = 3
 script = ExtResource("1_2lqyo")
+gravity = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -46)

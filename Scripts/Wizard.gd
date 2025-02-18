@@ -19,6 +19,8 @@ enum EBubbleType
 @export var trail_duration: float = 0.5  # Trail duration in seconds
 @export var trail_start_color: Color = Color.WHITE
 @export var trail_width: float = 3.0
+@export var min_y := 250.0
+@export var max_y := 1000.0
 
 @onready var bubble_launch_sfx: AudioStreamPlayer = $SFX/BubbleLaunchSfx
 @onready var needle_launch_sfx: AudioStreamPlayer = $SFX/NeedleLaunchSfx
@@ -58,6 +60,7 @@ func _physics_process(delta):
 	if stop:
 		return
 	var target_y = get_global_mouse_position().y + 50
+	target_y = clamp(target_y, min_y, max_y)
 	velocity.y = (target_y - global_position.y) * follow_speed * delta
 	
 	# Store current position with timestamp
@@ -93,6 +96,9 @@ func spawn_bubble(pos):
 	get_tree().current_scene.add_child(bubble)
 	bubble_launch_sfx.play()
 	can_spawn_bubble = false
+	for body in $NeedleCheckArea.get_overlapping_bodies():
+		if body.name == "Roof":
+			bubble.pop(true)
 	await get_tree().create_timer(bubble_cooldown).timeout
 	can_spawn_bubble = true
 	

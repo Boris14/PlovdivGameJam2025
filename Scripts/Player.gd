@@ -49,6 +49,7 @@ func on_bubbled(in_bubble):
 	bubble = in_bubble
 	
 func on_bubble_popped():
+	velocity = Vector2.ZERO
 	bubble = null
 
 func _draw():

@@ -102,6 +102,7 @@ collision_mask = 5
 
 [node name="NeedleCheckCollision" type="CollisionShape2D" parent="NeedleCheckArea"]
 position = Vector2(165.75, -9.5)
+scale = Vector2(1, 0.976324)
 shape = SubResource("RectangleShape2D_aljlr")
 
 [node name="SFX" type="Node" parent="."]
