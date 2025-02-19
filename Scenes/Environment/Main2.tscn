@@ -52,4 +52,4 @@ scale = Vector2(1, 37.48)
 position = Vector2(654, 545)
 
 [node name="Roof" parent="." instance=ExtResource("9_eqe46")]
-position = Vector2(962, 0)
+position = Vector2(1400, 0)

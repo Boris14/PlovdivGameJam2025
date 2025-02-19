@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://df0nmf1eirk2a"]
+[gd_scene load_steps=7 format=3 uid="uid://df0nmf1eirk2a"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2lqyo"]
 [ext_resource type="Texture2D" uid="uid://bh0eh2mv5sjey" path="res://Assets/cat.png" id="2_8foku"]
 [ext_resource type="AudioStream" uid="uid://ccgc5cw0yhose" path="res://Audio/SFX/bubble_pop_sfx.ogg" id="3_mb684"]
+[ext_resource type="AudioStream" uid="uid://c303pvwmf8ix6" path="res://Audio/SFX/262313__steffcaffrey__cat-meow2.wav" id="4_jvkfj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0j8i"]
 radius = 110.018
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_13g6n"]
+radius = 80.3508
 
 [node name="Player" type="CharacterBody2D" groups=["bubbleable", "player"]]
 scale = Vector2(0.4, 0.4)
@@ -26,3 +30,11 @@ shape = SubResource("CircleShape2D_d0j8i")
 [node name="BubblePopSfx" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_mb684")
 volume_db = 10.0
+
+[node name="MeowPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_jvkfj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_13g6n")

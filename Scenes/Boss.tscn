@@ -1,13 +1,205 @@
-[gd_scene load_steps=7 format=3 uid="uid://f3t10g308jd"]
+[gd_scene load_steps=13 format=3 uid="uid://f3t10g308jd"]
 
 [ext_resource type="Texture2D" uid="uid://b7slbtkd0qev7" path="res://Assets/IMG_7830.png" id="1_7hmke"]
 [ext_resource type="Script" path="res://Scripts/Boss.gd" id="1_fmcqo"]
 [ext_resource type="PackedScene" uid="uid://cc1beoa8t58p4" path="res://Scenes/BossNeedle.tscn" id="2_fq3si"]
 [ext_resource type="Texture2D" uid="uid://cdaryhqmo4t5" path="res://Assets/IMG_7832.png" id="2_ya8tm"]
 [ext_resource type="AudioStream" uid="uid://0da04cs36mpp" path="res://Audio/SFX/needle_launch_sfx.ogg" id="5_l84n1"]
+[ext_resource type="Texture2D" uid="uid://bnw2hjx2ntenj" path="res://Assets/Effects/bubble_frame_red_2.png" id="5_q0nas"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nt0w7"]
-size = Vector2(541, 1568)
+size = Vector2(383.833, 1568)
+
+[sub_resource type="Animation" id="Animation_4ribb"]
+resource_name = "ShootUp"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShootPositions/ShootPosition1/ShootUpSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShootPositions/ShootPosition1/ShootUpSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-3.14159, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShootPositions/ShootPosition1/ShootUpSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_olwst"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShootPositions/ShootPosition1/ShootUpSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShootPositions/ShootPosition1/ShootUpSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShootPositions/ShootPosition1/ShootUpSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ShootPositions/ShootPosition2/ShootMiddleSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ShootPositions/ShootPosition3/ShootDownSprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3xj7y"]
+resource_name = "ShootMiddle"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShootPositions/ShootPosition2/ShootMiddleSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShootPositions/ShootPosition2/ShootMiddleSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-3.14159, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShootPositions/ShootPosition2/ShootMiddleSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_km13n"]
+resource_name = "ShootDown"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShootPositions/ShootPosition3/ShootDownSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShootPositions/ShootPosition3/ShootDownSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-3.14159, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShootPositions/ShootPosition3/ShootDownSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ihcr7"]
+_data = {
+"RESET": SubResource("Animation_olwst"),
+"ShootDown": SubResource("Animation_km13n"),
+"ShootMiddle": SubResource("Animation_3xj7y"),
+"ShootUp": SubResource("Animation_4ribb")
+}
 
 [node name="Boss" type="Area2D" groups=["Boss"]]
 scale = Vector2(0.6, 0.6)
@@ -15,6 +207,7 @@ script = ExtResource("1_fmcqo")
 needle_scene = ExtResource("2_fq3si")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(78.5833, 0)
 shape = SubResource("RectangleShape2D_nt0w7")
 
 [node name="Normal" type="Sprite2D" parent="."]
@@ -28,13 +221,35 @@ texture = ExtResource("2_ya8tm")
 [node name="ShootPositions" type="Node2D" parent="."]
 
 [node name="ShootPosition1" type="Marker2D" parent="ShootPositions"]
-position = Vector2(18.3333, -455)
+position = Vector2(-70, -455)
+
+[node name="ShootUpSprite" type="Sprite2D" parent="ShootPositions/ShootPosition1"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-1.27157e-05, -1.66667)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_q0nas")
 
 [node name="ShootPosition2" type="Marker2D" parent="ShootPositions"]
-position = Vector2(-165, -126.667)
+position = Vector2(-260, -126.667)
+
+[node name="ShootMiddleSprite" type="Sprite2D" parent="ShootPositions/ShootPosition2"]
+modulate = Color(0, 0, 0, 1)
+rotation = -3.14159
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("5_q0nas")
 
 [node name="ShootPosition3" type="Marker2D" parent="ShootPositions"]
-position = Vector2(-200, 371.667)
+position = Vector2(-260, 605)
+
+[node name="ShootDownSprite" type="Sprite2D" parent="ShootPositions/ShootPosition3"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_q0nas")
 
 [node name="NeedleLaunchSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_l84n1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ihcr7")
+}

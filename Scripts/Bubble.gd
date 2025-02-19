@@ -28,6 +28,13 @@ func _physics_process(delta: float) -> void:
 		if is_swallowing:
 			controlled_body.global_position = controlled_body.global_position.lerp(global_position, delta * swallow_speed)
 		else:
+			if controlled_body is Player:			
+				for overlapping_body in controlled_body.pop_area.get_overlapping_bodies():
+					if overlapping_body != controlled_body and not overlapping_body.is_in_group("wizard"):
+						print(overlapping_body.name)
+						pop(true)
+						return
+						
 			controlled_body.global_position = global_position
 			
 		if controlled_body.global_position.distance_to(global_position) <= full_swallow_treshold:
@@ -40,7 +47,8 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body):    
 	if body.is_in_group("wizard"):
 		return
-	if controlled_body != null:
+	if controlled_body != null and not is_swallowing and not body.is_in_group("player"):
+		print(body)
 		pop(true)	
 	elif body.is_in_group("bubbleable"):
 		bubble(body)
@@ -51,7 +59,7 @@ func _on_area_entered(area):
 	if area is Needle:
 		area.hit()
 		pop(true)
-	elif controlled_body != null:
+	elif controlled_body != null and not is_swallowing and not area.is_in_group("player"):
 		pop(true)
 	elif area.is_in_group("bubbleable"):
 		bubble(area)

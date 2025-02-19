@@ -64,4 +64,8 @@ position = Vector2(767.25, 500.462)
 shape = SubResource("RectangleShape2D_p243i")
 
 [node name="Roof" parent="." instance=ExtResource("8_i3cfw")]
-position = Vector2(962, 0)
+position = Vector2(1400, 0)
+
+[node name="Spikes" parent="." instance=ExtResource("3_jaw37")]
+position = Vector2(774, 636.495)
+scale = Vector2(0.319998, 0.678739)

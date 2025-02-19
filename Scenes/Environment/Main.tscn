@@ -51,4 +51,4 @@ scale = Vector2(4.88, 17.2)
 [node name="MusicManager" parent="." instance=ExtResource("8_qpy4g")]
 
 [node name="Roof" parent="." instance=ExtResource("9_2te15")]
-position = Vector2(962, 0)
+position = Vector2(1400, 0)

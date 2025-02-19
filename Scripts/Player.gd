@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var trail_start_color: Color = Color.PINK
 @export var trail_width: float = 10.0
 @onready var bubble_pop_sfx: AudioStreamPlayer = $SFX/BubblePopSfx
+@onready var pop_area := $Area2D as Area2D
 
 var position_history: Array[Dictionary] = []
 var can_move := false
@@ -41,6 +42,7 @@ func _physics_process(delta: float) -> void:
 func die():
 	modulate = Color.RED
 	self_modulate = Color.RED
+	$SFX/MeowPlayer.play()
 	await get_tree().create_timer(0.3).timeout
 	died.emit()
 	queue_free()
